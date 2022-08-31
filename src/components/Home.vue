@@ -6,7 +6,8 @@ import Footer from './footer/Index.vue'
 
 <template>
   <div class="home">
-    <Header></Header>
+    <Header>
+    </Header>
     <Content></Content>
     <Footer></Footer>
   </div>
