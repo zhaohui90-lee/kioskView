@@ -7,12 +7,14 @@
 
 <script setup lang="ts">
 import axios from 'axios'
-import { computed, ref, toRef } from 'vue';
+import { computed, reactive, ref, toRef } from 'vue';
 
-let msgRaw: String;
+// let msg = reactive<Number[]>([])
+let msg = ref<String>('')
 axios.get('http://localhost:3000/test')
   .then(res => {
-    msgRaw = res.data
+    // msg.push(res.data)
+    msg.value = res.data
   })
   .catch(error => {
     console.log(error);
@@ -20,6 +22,13 @@ axios.get('http://localhost:3000/test')
   })
 
 
+
+// let message1 = reactive<Number[]>([])
+
+// setTimeout(() => {
+//   let arr = [1,2,3,4]
+//   message1.push(...arr)
+// }, 1000);
 
 
 </script>
