@@ -3,16 +3,14 @@
 </script>
 
 <template>
-<div class="content">
+  <div class="content">
 
-</div>
+  </div>
 </template>
 
 <style lang="less" scoped>
 .content {
   width: 100%;
-  height: 830px;
-  border-bottom: 1px solid #ccc;
-  background: black;
+  height: 75%;
 }
 </style>

@@ -1,27 +1,39 @@
 <script setup lang="ts">
-import HospitalLogo from '@/slot/header/HospitalLogo.vue';
+
 </script>
 
 <template>
   <div class="sub-header">
-    <HospitalLogo>
-      <template #header-left></template>
-    </HospitalLogo>
-    <slot name="header-middle"></slot>
-    <slot name="header-right"></slot>
+    <div class="header-left">
+      <slot name="header-left"></slot>
+    </div>
+    <div class="header-middle">
+      <slot name="header-middle"></slot>
+    </div>
+    <div class="header-right">
+      <slot name="header-right"></slot>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
 .sub-header {
   width: 100%;
-  height: 140px;
-  border-bottom: 1px solid #ccc;
+  height: 13%;
   display: flex;
-  flex: 1;
-  background: red;
-  &header-left {
-    background: pink;
+  align-items: center;
+  background: url(../../assets/img/43inch-header-bg.png) center/110%;
+
+  .header-left {
+    width: 50%;
+  }
+
+  .header-middle {
+    width: 30%;
+  }
+
+  .header-right {
+    width: 20%;
   }
 }
 </style>
