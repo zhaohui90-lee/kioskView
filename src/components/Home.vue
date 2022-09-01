@@ -45,7 +45,7 @@ const ipAddr = ref('127.0.0.1')
             <div class="device-number">终端编号：{{ deviceNumber }}</div>
             <div class="software-version">软件版本：{{ softwareVersion }}</div>
           </div>
-          <div class="ip-addr">{{ ipAddr }}</div>
+          <div class="ip-addr">IP地址：{{ ipAddr }}</div>
         </div>
       </template>
     </Footer>
@@ -63,7 +63,7 @@ const ipAddr = ref('127.0.0.1')
   .logo {
     height: 140px;
     z-index: 99;
-    background: url(../assets/img/logo/hospital_logo_浙大眼科.png) center no-repeat;
+    background: url(@/assets/img/logo/hospital_logo_浙大眼科.png) center no-repeat;
   }
 
   &-timer {
@@ -89,7 +89,7 @@ const ipAddr = ref('127.0.0.1')
     &-img {
       width: 50%;
       height: 90px;
-      background: url(../assets/img/userHeaderImg.png) center no-repeat;
+      background: url(@/assets/img/userHeaderImg.png) center no-repeat;
     }
 
     &-msg {

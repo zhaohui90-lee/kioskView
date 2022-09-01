@@ -31,11 +31,11 @@
   }
 
   &-middle {
-    width: 40%;
+    width: 45%;
   }
 
   &-right {
-    width: 38%;
+    width: 30%;
   }
 }
 </style>
