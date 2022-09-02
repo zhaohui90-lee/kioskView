@@ -4,12 +4,53 @@ import Content from './content/Index.vue'
 import Footer from './footer/Index.vue'
 import Timer from './clock/Timer.vue';
 import Date from './clock/Date.vue';
-import { ref } from 'vue';
+import { nextTick, onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
+import axios from 'axios';
+import { computed } from '@vue/reactivity';
 
-const welcomeMessage = ref('欢迎使用')
-const deviceNumber = ref('001')
-const softwareVersion = ref('0.0.0.0')
-const ipAddr = ref('127.0.0.1')
+const welcomeMessage = ref<String>('欢迎使用')
+const deviceNumber = ref<String>('001')
+const softwareVersion = ref<String>('0.0.0.0')
+const ipAddr = ref<String>('127.0.0.1')
+let menu = ref<Object>({})
+// 获取设备信息
+
+// 获取首页菜单信息
+
+onBeforeMount(() => {
+  console.log('home before mounted...');
+})
+
+
+onMounted(() => {
+  console.log('home mounted...');
+
+})
+
+axios.post('http://localhost:3000/menu')
+  .then(res => {
+    // 判断是否交易成功
+    if ('0' === res.data.code) {
+      menu.value = res.data
+    } else {
+      menu.value = '交易失败！'
+    }
+  })
+  .catch(error => {
+    console.log(error);
+
+  })
+
+onBeforeUpdate(() => {
+  console.log('home before updated...');
+  
+})
+
+onUpdated(() => {
+  console.log('home updated...');
+
+  nextTick()
+})
 
 </script>
 
@@ -30,7 +71,7 @@ const ipAddr = ref('127.0.0.1')
         </div>
       </template>
     </Header>
-    <Content></Content>
+    <Content :menu="menu"></Content>
     <Footer>
       <template #footer-left>
         <div class="userinfo-temp">
