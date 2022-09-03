@@ -5,15 +5,15 @@ import moment from 'moment'
 let currentDate: Ref = ref<String>(moment().format('YYYY-MM-DD'))
 
 setInterval(() => {
-  currentDate.value = moment().format('YYYY-MM-DD')  
+  currentDate.value = moment().format('YYYY-MM-DD')
 }, 1000);
 </script>
-<template>
+  <template>
   <div class="date-temp">{{ currentDate }}</div>
 </template>
-<style lang="less" scoped>
-.date-temp {
-  font-size: 25px;
-  color: var(--gray-900);
-}
-</style>
+  <style lang="less" scoped>
+  .date-temp {
+    font-size: 25px;
+    color: var(--gray-900);
+  }
+  </style>

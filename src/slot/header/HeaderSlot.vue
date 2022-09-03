@@ -22,9 +22,9 @@
   height: 13%;
   display: flex;
   align-items: center;
-  background: url(../../assets/img/43inch-header-bg.png) center/110%;
 
   .header-left {
+    height: 100%;
     width: 50%;
   }
 

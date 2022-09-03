@@ -10,24 +10,24 @@ setInterval(() => {
   minute.value = moment().format('mm')
 }, 60 * 1000)
 </script>
-<template>
+  <template>
   <div class="timer-temp">
     <div class="timer-temp-hour">{{ hour }}</div>
     <div class="timer-temp-minute">:{{ minute }}</div>
   </div>
 </template>
-<style lang="less" scoped>
-.timer-temp {
-  color: var(--pink);
-
-  &-hour {
-    display: inline-block;
-    font-size: 60px;
+  <style lang="less" scoped>
+  .timer-temp {
+    color: var(--pink);
+  
+    &-hour {
+      display: inline-block;
+      font-size: 60px;
+    }
+  
+    &-minute {
+      display: inline-block;
+      font-size: 36px;
+    }
   }
-
-  &-minute {
-    display: inline-block;
-    font-size: 36px;
-  }
-}
-</style>
+  </style>
