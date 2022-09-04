@@ -8,6 +8,7 @@ let menu = ref<Object>({})
 // 获取设备信息
 
 // 获取首页菜单信息        
+fetchMenu('001')
 
 onBeforeMount(() => {
   console.log('home before mounted...');
@@ -17,7 +18,6 @@ onBeforeMount(() => {
 onMounted(() => {
   console.log('home mounted...');
 
-  fetchMenu('001')
   // 编程式导航
   const router = useRouter()
   router.push('/')

@@ -1,21 +1,32 @@
 <script setup lang="ts">
+import { useCounterStore } from '@/stores/counter';
 import { ref, watch, type Ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-let count = 120;
-let second = ref<number>(count)
+let second = ref<number>(120)
 const router = useRouter();
 
-setInterval(() => {
-  second.value = --count;
+
+
+
+const secondInterval = setInterval(() => {
+  second.value--
 }, 1000)
 
+console.log('secondInterval', secondInterval);
+
+
+
+
+
 watch(second, (newVal, oldVal) => {
-  // console.log(newVal, oldVal);
-  if(110 === newVal) {
+  console.log(newVal, oldVal);
+  if (110 >= newVal) {
+    // 清除定时器
+    clearInterval(secondInterval)
     // 跳转首页
     router.push('/')
-  }
+  } 
 })
 </script>
 <template>

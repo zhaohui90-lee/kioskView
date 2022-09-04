@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { useMenuStore } from "@/stores/menu";
 
 
 const props = defineProps<{
@@ -10,26 +11,31 @@ const props = defineProps<{
 
 const menuArray = ref<Array<any>>([])
 
+// 储存menu
+const menuStore = useMenuStore();
+
+
+
 const router = useRouter();
 
-// 绑定事件 跳转到对应的功能    
+// 绑定事件 跳转到对应的功能  
 function goMenu(target: string) {
   console.log('跳转功能...', target);
   // 路由跳转
   console.log(target.slice(3, target.length));
   router.push(target.slice(3, target.length))
-  // router.push(target.slice(0, 2))
+
 }
 
 onBeforeMount(() => {
   console.log('content before mounted....');
+  menuArray.value = menuStore.menu
   console.log('menuArray', menuArray);
 
 })
 
 onMounted(() => {
   console.log('content mounted...');
-
 
 })
 
@@ -40,6 +46,9 @@ onBeforeUpdate(function () {
 
   console.log(menuArray);
 
+  menuStore.getMenu(menuArray.value)
+
+  console.log('menuStore', menuStore);
 })
 
 
