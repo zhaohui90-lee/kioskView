@@ -1,10 +1,27 @@
 <script setup lang="ts">
 import FooterSlot from '@/slot/footer/FooterSlot.vue';
-import { ref } from 'vue';
+import { onBeforeMount, onBeforeUpdate, onMounted, ref } from 'vue';
+import { fetchDeviceInfo, fetchSoftwareVersion } from '@/fetchData/homeFunc'
 const welcomeMessage = ref<String>('欢迎使用')
+
 const deviceNumber = ref<String>('001')
 const softwareVersion = ref<String>('0.0.0.0')
-const ipAddr = ref<String>('127.0.0.1')
+const ipAddr = ref<String>('')
+
+onBeforeMount(() => {
+  // 获取设备信息
+  fetchDeviceInfo(deviceNumber.value.toString()).then(res => {
+    ipAddr.value = res.data.ip
+  })
+
+  // 获取软件版本
+  fetchSoftwareVersion().then(res => {
+    softwareVersion.value = res.data
+  })
+})
+
+
+
 </script>
 <template>
   <FooterSlot>

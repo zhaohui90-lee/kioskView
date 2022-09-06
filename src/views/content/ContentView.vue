@@ -1,20 +1,9 @@
 <script setup lang="ts">
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useMenuStore } from "@/stores/menu";
+import { fetchMenuInfo } from "@/fetchData/homeFunc";
 
-
-const props = defineProps<{
-  menu: any,
-  msg?: String
-}>()
-
-const menuArray = ref<Array<any>>([])
-
-// 储存menu
-const menuStore = useMenuStore();
-
-
+const menuArray = ref<Array<menu>>([])
 
 const router = useRouter();
 
@@ -29,26 +18,20 @@ function goMenu(target: string) {
 
 onBeforeMount(() => {
   console.log('content before mounted....');
-  menuArray.value = menuStore.menu
-  console.log('menuArray', menuArray);
+  fetchMenuInfo('001').then(res => {
+    menuArray.value = res.data
+  })
 
 })
 
 onMounted(() => {
   console.log('content mounted...');
-
+  
 })
 
 onBeforeUpdate(function () {
   console.log('content before update....');
 
-  menuArray.value = props.menu.data
-
-  console.log(menuArray);
-
-  menuStore.getMenu(menuArray.value)
-
-  console.log('menuStore', menuStore);
 })
 
 
@@ -65,7 +48,7 @@ onUpdated(() => {
   <div class="content">
 
     <div class="content-menu-temp">
-      <div class="content-menu-temp-item" v-for="item, index in menuArray" :key="item.id">
+      <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
         <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url)">
           <div class="menu-name">
             <div class="menu-title">{{ item.name }}</div>
