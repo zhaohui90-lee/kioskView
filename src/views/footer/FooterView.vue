@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FooterSlot from '@/slot/footer/FooterSlot.vue';
-import { onBeforeMount, onBeforeUpdate, onMounted, ref } from 'vue';
-import { fetchDeviceInfo, fetchSoftwareVersion } from '@/fetchData/homeFunc'
+import { onBeforeMount, ref } from 'vue';
+import { fetchDeviceInfo, fetchSoftwareVersion } from '@/api/homeFunc'
 const welcomeMessage = ref<String>('欢迎使用')
 
 const deviceNumber = ref<String>('001')

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
+import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
-import { fetchMenuInfo } from "@/fetchData/homeFunc";
+import { fetchMenuInfo } from "@/api/homeFunc";
 
-const menuArray = ref<Array<menu>>([])
+const menuArray = ref<Menu[]>([])
 
 const router = useRouter();
 
@@ -26,7 +27,7 @@ onBeforeMount(() => {
 
 onMounted(() => {
   console.log('content mounted...');
-  
+
 })
 
 onBeforeUpdate(function () {
@@ -43,26 +44,26 @@ onUpdated(() => {
 </script>
   
   <template>
-  <!-- <ContentSlot>
-    <template #main-content> -->
-  <div class="content">
+  <ContentSlot>
+    <template #main-content>
+      <div class="content">
 
-    <div class="content-menu-temp">
-      <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
-        <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url)">
-          <div class="menu-name">
-            <div class="menu-title">{{ item.name }}</div>
-            <div class="menu-logo ico-plane" :class="'ico' + item.logo"></div>
+        <div class="content-menu-temp">
+          <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
+            <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url)">
+              <div class="menu-name">
+                <div class="menu-title">{{ item.name }}</div>
+                <div class="menu-logo ico-plane" :class="'ico' + item.logo"></div>
+              </div>
+              <div class="menu-tips">{{ item.tips }}</div>
+            </div>
           </div>
-          <div class="menu-tips">{{ item.tips }}</div>
+
         </div>
       </div>
+    </template>
 
-    </div>
-  </div>
-  <!-- </template>
-
-  </ContentSlot> -->
+  </ContentSlot>
 
 </template>
   

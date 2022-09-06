@@ -8,15 +8,11 @@ export async function fetchSoftwareVersion(): Promise<any> {
   await axios.post('http://localhost:3000/software')
     .then(res => {
       // 判断是否交易成功
-      if ('0' === res.data.code) {
-        result = res.data
-      } else {
-        result = 'device交易失败！'
-      }
+      result = res.data
     })
     .catch(error => {
       console.log(error);
-      result = 'axios交易异常: ' + error
+      result = error
     })
   return result;
 }
@@ -38,7 +34,7 @@ export async function fetchDeviceInfo(deviceNo?: string): Promise<any> {
     })
     .catch(error => {
       console.log(error);
-      result = 'axios交易异常: ' + error
+      result = error
     })
   return result;
 }
@@ -60,7 +56,7 @@ export async function fetchMenuInfo(deviceNo?: string): Promise<any> {
     })
     .catch(error => {
       console.log(error);
-      result = 'axios交易异常: ' + error
+      result = error
     })
   return result
 }

@@ -1,7 +1,7 @@
 /**
  * 设备数据 json value
  */
-interface deviceInfo {
+interface DeviceInfo {
   msg: string,
   code: string,
   data: {
@@ -13,7 +13,7 @@ interface deviceInfo {
 /**
  * 软件版本
  */
-interface softwareVersion {
+interface SoftwareVersion {
   msg: string,
   code: string,
   data: string
@@ -22,7 +22,7 @@ interface softwareVersion {
 /**
  * 菜单结构
  */
-interface menu {
+interface Menu {
   id: number,
   name: string,
   sort: number,
@@ -41,4 +41,11 @@ interface menu {
     type: string
   },
   secMenu: []
+}
+
+/**
+ * 用户数据接口
+ */
+interface User {
+  
 }

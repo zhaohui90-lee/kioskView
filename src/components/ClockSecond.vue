@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { useCounterStore } from '@/stores/counter';
 import { ref, watch, type Ref } from 'vue';
 import { useRouter } from 'vue-router';
 
 let second = ref<number>(120)
 const router = useRouter();
-
-
-
 
 const secondInterval = setInterval(() => {
   second.value--
@@ -16,12 +12,9 @@ const secondInterval = setInterval(() => {
 console.log('secondInterval', secondInterval);
 
 
-
-
-
 watch(second, (newVal, oldVal) => {
-  console.log(newVal, oldVal);
-  if (110 >= newVal) {
+  // console.log(newVal, oldVal);
+  if (0 >= newVal) {
     // 清除定时器
     clearInterval(secondInterval)
     // 跳转首页
@@ -37,5 +30,6 @@ watch(second, (newVal, oldVal) => {
 <style lang="less" scoped>
 .clock-second {
   color: var(--pink);
+  font-size: 35px;
 }
 </style>

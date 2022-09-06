@@ -22,7 +22,8 @@ const router = createRouter({
       name: 'cardModule',
       components: {
         default: () => import('@/views/card/CardModuleView.vue'),
-        Header: () => import('@/views/subTitle/SubTitleView.vue')
+        Header: () => import('@/views/subTitle/SubTitleView.vue'),
+        Footer: () => import('@/views/footer/FooterView.vue')
       }
     },
     {
@@ -30,7 +31,8 @@ const router = createRouter({
       name: 'payment',
       components: {
         default: () => import('@/views/payment/PaymentView.vue'),
-        Header: () => import('@/views/subTitle/SubTitleView.vue')
+        Header: () => import('@/views/subTitle/SubTitleView.vue'),
+        Footer: () => import('@/views/footer/FooterView.vue')
       }
     }
   ]
