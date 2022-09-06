@@ -4,10 +4,8 @@ import { useRouter } from 'vue-router';
 
 
 
-
 onBeforeMount(() => {
   console.log('home before mounted...');
-
 })
 
 

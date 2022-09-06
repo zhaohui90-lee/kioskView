@@ -67,7 +67,7 @@ export default function $axios(options) {
         console.log('====>', response);
         // IE9时response.data是undefined，因此需要使用response.request.responseText(Stringify后的字符串)
         if (response.data === undefined) {
-          data = response.request.responseText
+          data = JSON.parse(response.request.responseText)
         } else {
           data = response.data
         }

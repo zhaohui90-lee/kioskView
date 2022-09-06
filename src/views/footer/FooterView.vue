@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import FooterSlot from '@/slot/footer/FooterSlot.vue';
 import { onBeforeMount, ref } from 'vue';
-import { fetchDeviceInfo, fetchSoftwareVersion } from '@/http/homeFunc'
 import api from "@/http/index";
 const welcomeMessage = ref<String>('欢迎使用')
 
@@ -12,21 +11,19 @@ const ipAddr = ref<String>('')
 
 onBeforeMount(() => {
   // 获取设备信息
-  // fetchDeviceInfo(deviceNumber.value.toString()).then(res => {
-  //   ipAddr.value = res.data.ip
-  // })
   api.deviceInfo({
     deviceNo: deviceNumber.value.toString()
   }).then(res => {
-    console.log(res);
+    // console.log(res);
     
-    // ipAddr.value = res.data.ip
+    ipAddr.value = res.data.ip
   })
 
-  // // 获取软件版本
-  // fetchSoftwareVersion().then(res => {
-  //   softwareVersion.value = res.data
-  // })
+  // 获取软件版本
+  api.softwareVersion()
+    .then(res => {
+      softwareVersion.value = res.data
+    })
 })
 
 
