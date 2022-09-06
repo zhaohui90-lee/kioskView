@@ -5,7 +5,7 @@ import axios from "axios";
  */
 export async function fetchSoftwareVersion(): Promise<any> {
   let result;
-  await axios.post('http://localhost:3000/software')
+  await axios.post('http://localhost:3000/software', JSON.stringify({name: '1212'}))
     .then(res => {
       // 判断是否交易成功
       result = res.data

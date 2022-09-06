@@ -2,7 +2,7 @@
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
-import { fetchMenuInfo } from "@/api/homeFunc";
+import { fetchMenuInfo } from "@/http/homeFunc";
 
 const menuArray = ref<Menu[]>([])
 

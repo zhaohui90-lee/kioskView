@@ -16,7 +16,9 @@ onMounted(() => {
 
   // 编程式导航
   const router = useRouter()
-  router.push('/')
+  router.push({
+    path: '/'
+  })
 })
 
 
