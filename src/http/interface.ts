@@ -16,14 +16,14 @@ export const deviceInfo = (params: InDeviceInfo): Promise<DeviceInfo | any> => {
 /**
  * 获取设备数据
  */
-interface InDeviceInfo {
+export interface InDeviceInfo {
   deviceNo: string
 }
 
 /**
  * 返回设备数据 json value
  */
-interface DeviceInfo {
+export interface DeviceInfo {
   msg: string,
   code: string,
   data: {
@@ -46,7 +46,7 @@ export const softwareVersion = (): Promise<SoftwareVersion | any> => {
 /**
  * 软件版本
  */
-interface SoftwareVersion {
+export interface SoftwareVersion {
   msg: string,
   code: string,
   data: string
@@ -68,7 +68,7 @@ export const menu = (params: InDeviceInfo): Promise<Menu | any> => {
 /**
  * 菜单结构
  */
-interface Menu {
+export interface Menu {
   id: number,
   name: string,
   sort: number,
@@ -92,7 +92,7 @@ interface Menu {
 /**
  * 用户数据接口
  */
-interface User {
+export interface User {
 
 }
 

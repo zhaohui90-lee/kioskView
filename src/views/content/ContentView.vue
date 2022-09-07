@@ -2,7 +2,8 @@
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
-import { fetchMenuInfo } from "@/http/homeFunc";
+import type { Menu } from '@/http/interface';
+import api from "@/http/index";
 
 const menuArray = ref<Menu[]>([])
 
@@ -19,7 +20,9 @@ function goMenu(target: string) {
 
 onBeforeMount(() => {
   console.log('content before mounted....');
-  fetchMenuInfo('001').then(res => {
+  api.menu({
+    deviceNo: '001'
+  }).then(res => {
     menuArray.value = res.data
   })
 
