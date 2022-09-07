@@ -23,7 +23,7 @@ const router = createRouter({
       components: {
         default: () => import('@/views/card/CardModuleView.vue'),
         Header: () => import('@/views/subTitle/SubTitleView.vue'),
-        Footer: () => import('@/views/footer/FooterView.vue')
+        Footer: () => import('@/views/footer/FooterCardView.vue')
       }
     },
     {

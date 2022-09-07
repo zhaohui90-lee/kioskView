@@ -92,8 +92,23 @@ export interface Menu {
 /**
  * 用户数据接口
  */
-export interface User {
-
+export interface UserInfo {
+  unique_id: string,        // 病人唯一号
+  card_no: string,
+  long_card_no: string,
+  card_type: number,
+  is_medical_id: boolean,       // 是否为门诊号
+  phone_jd: number,      // 建档时使用
+  cur_menuname: string,  // 当前菜单名称
+  multi_org: boolean,         // 控制多个院区选择显示
+  medinfo: string,
+  name: string,
+  isLogin: boolean,
+  balance: number,
+  logoutBtn: boolean,
+  homeBtn: boolean,
+  logBtn: boolean,
+  returnBtn: boolean
 }
 
 export default {

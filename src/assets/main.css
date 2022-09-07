@@ -1,5 +1,6 @@
 @import "./base.css";
 @import url("./home.css");
+@import url("./global.css");
 
 #app {
   width: 1280px;

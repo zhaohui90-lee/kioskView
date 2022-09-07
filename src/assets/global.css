@@ -1,0 +1,172 @@
+/*
+  使用于不同项目的全局样式 
+ */
+
+ @font-face {
+  font-family: "iconfont"; /* project id 303949 */
+  src: url("./font/iconfont.eot");
+  src: url("./font/iconfont.eot?#iefix") format("embedded-opentype"),
+    url("./font/iconfont.woff") format("woff"),
+    url("./font/iconfont.ttf") format("truetype"),
+    url("./font/iconfont.svg#iconfont") format("svg");
+}
+
+body div,
+body span,
+body i {
+  font-family: Calibri, Segoe, Segoe UI, 微软雅黑;
+}
+
+.flex-column,
+.flex-row {
+  display: flex;
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.col-center,
+.text-center {
+  text-align: center;
+}
+.item {
+  border-bottom: #adb5bd solid 1px;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.bgi-normal {
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+[pointer] {
+  cursor: pointer;
+}
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clickable {
+  cursor: pointer;
+}
+
+.unclickable {
+  cursor: not-allowed;
+}
+
+.clickable:active {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+.text-clickable {
+  background: rgb(50, 153, 150);
+  background: linear-gradient(
+    317deg,
+    rgba(50, 153, 150, 1) 0%,
+    rgba(115, 206, 136, 1) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0rem 0rem 0rem rgba(0, 0, 0, 1);
+}
+
+summary {
+  display: block;
+  cursor: pointer;
+  outline: 0;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+.expandable {
+  /* Abstract class */
+  text-size-adjust: none;
+}
+
+.expandable--default[open] {
+  border-left: 1px black dotted;
+  border-image-source: linear-gradient(
+    to bottom,
+    #fff 0%,
+    #fff 20%,
+    green 100%
+  );
+  border-image-slice: 0 0 0 100%;
+  min-height: 36px;
+}
+.expandable--default {
+  padding: 0 0 0 12px;
+  font-size: 16px;
+  border: none;
+  line-height: 20px;
+  margin-left: 0.4rem;
+  margin-bottom: 0.05rem;
+}
+.expandable--default[open] > summary::before {
+  transform: rotate(90deg);
+}
+.expandable--default summary {
+  cursor: pointer;
+  position: relative;
+  outline: 0;
+}
+.expandable--default p {
+  margin: 5px 0;
+  border-bottom: solid var(--gray-300) 1px;
+}
+.expandable--default summary::before {
+  content: "▷";
+  position: absolute;
+  left: -0.16rem;
+  top: 0rem;
+  color: var(--green);
+  display: inline-block;
+}
+
+/*修饰scrollbar*/
+/*::-webkit-scrollbar  
+{  
+    width: 10px;  
+    background-color: transparent;
+    padding:0 5px;
+}  */
+
+/*定义滚动条轨道 内阴影+圆角*/
+/*::-webkit-scrollbar-track  
+{  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);  
+    border-radius: 10px; 
+     
+    background-color: #fff;  
+}  
+  */
+/*定义滑块 内阴影+圆角*/
+/*::-webkit-scrollbar-thumb  
+{  
+    padding-top:20px;
+    height: 20px;
+    border:3px #fff solid;
+    border-radius: 10px;  
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);  
+    background-color: var(--main_light);
+}  
+::-webkit-scrollbar-button{
+   height: 2px;
+}
+*/
