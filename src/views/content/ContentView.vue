@@ -4,14 +4,20 @@ import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
 import type { Menu } from '@/http/interface';
 import api from "@/http/index";
+import { useSubTitleStore } from "@/stores/index";
 
 const menuArray = ref<Menu[]>([])
+
+const subTitleStore = useSubTitleStore();
 
 const router = useRouter();
 
 // 绑定事件 跳转到对应的功能  
-function goMenu(target: string) {
-  console.log('跳转功能...', target);
+function goMenu(target: string, targetName: string) {
+  console.log('跳转功能...', target, targetName);
+  subTitleStore.$patch({
+    titleName: targetName
+  })
   // 路由跳转
   console.log(target.slice(3, target.length));
   router.push(target.slice(3, target.length))
@@ -53,7 +59,7 @@ onUpdated(() => {
 
         <div class="content-menu-temp">
           <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
-            <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url)">
+            <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url, item.name)">
               <div class="menu-name">
                 <div class="menu-title">{{ item.name }}</div>
                 <div class="menu-logo ico-plane" :class="'ico' + item.logo"></div>

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { nextTick, onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
-import { useRouter } from 'vue-router';
+import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated } from 'vue';
 
 
 
@@ -11,12 +10,6 @@ onBeforeMount(() => {
 
 onMounted(() => {
   console.log('home mounted...');
-
-  // 编程式导航
-  const router = useRouter()
-  router.push({
-    path: '/'
-  })
 })
 
 
@@ -27,8 +20,6 @@ onBeforeUpdate(() => {
 
 onUpdated(() => {
   console.log('home updated...');
-
-  nextTick()
 })
 
 </script>

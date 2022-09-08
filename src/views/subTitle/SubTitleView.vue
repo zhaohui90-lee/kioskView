@@ -3,13 +3,22 @@ import HeaderSlot from '@/slot/header/HeaderSlot.vue';
 import SubTitleName from '@/components/SubTitleName.vue';
 import SubTitleStep from '@/components/SubTitleStep.vue';
 import ClockSecond from '@/components/ClockSecond.vue';
+import { onBeforeMount, ref } from 'vue';
+
+const test = ref('测试数据')
+
+onBeforeMount(() => {
+  console.log('sub-title-view....');
+
+})
+
 </script>
 
 <template>
   <HeaderSlot class="sub-title">
     <template #header-left>
       <div class="sub-title-left">
-        <SubTitleName></SubTitleName>
+        <SubTitleName :test="test"></SubTitleName>
         <SubTitleStep></SubTitleStep>
       </div>
 

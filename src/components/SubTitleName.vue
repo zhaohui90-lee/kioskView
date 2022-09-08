@@ -1,7 +1,19 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { useSubTitleStore } from '@/stores';
+import { onBeforeMount, ref } from 'vue';
 
-const titleName = ref('缴费')
+const titleName = ref('')
+const subTitleStore = useSubTitleStore();
+
+
+onBeforeMount(() => {
+  console.log('sub-title-name....');
+  
+  titleName.value = subTitleStore.titleName
+
+})
+
+
 </script>
 <template>
   <div class="sub-title-container">
