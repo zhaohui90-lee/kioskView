@@ -1,3 +1,4 @@
+import type { CardModule } from '@/http/interface'
 import { defineStore } from 'pinia'
 import { ref, type Ref } from 'vue'
 
@@ -7,5 +8,14 @@ export const useSubTitleStore = defineStore('subTitle', () => {
 
   return {
     titleName
+  }
+})
+
+export const useCardModuleStore = defineStore('cardModule', () => {
+
+  let cardModule: Ref<Array<CardModule>> = ref([])
+
+  return {
+    cardModule
   }
 })

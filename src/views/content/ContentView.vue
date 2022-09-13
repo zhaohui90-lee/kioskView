@@ -4,20 +4,35 @@ import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
 import type { Menu } from '@/http/interface';
 import api from "@/http/index";
-import { useSubTitleStore } from "@/stores/index";
+import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
 
 const menuArray = ref<Menu[]>([])
 
 const subTitleStore = useSubTitleStore();
+const cardModuleStore = useCardModuleStore();
 
 const router = useRouter();
 
 // 绑定事件 跳转到对应的功能  
 function goMenu(target: string, targetName: string) {
   console.log('跳转功能...', target, targetName);
+  // 业务名称
   subTitleStore.$patch({
     titleName: targetName
   })
+  // 选择业务对象
+  const targetObj: Menu | undefined = menuArray.value.find(item => {
+    return item.name === targetName
+  })
+  console.log('targetObj', targetObj);
+
+  if (targetObj) {
+    cardModuleStore.$patch({
+      cardModule: targetObj.cardType
+    })
+  }
+
+
   // 路由跳转
   console.log(target.slice(3, target.length));
   router.push(target.slice(3, target.length))
@@ -52,7 +67,7 @@ onUpdated(() => {
 
 </script>
   
-  <template>
+<template>
   <ContentSlot>
     <template #main-content>
       <div class="content">
@@ -76,61 +91,61 @@ onUpdated(() => {
 
 </template>
   
-  <style lang="less" scoped>
-  .content {
-    width: 100%;
-    height: 75%;
-    color: #fff;
-    font-size: 30px;
-  
-    .content-menu-temp {
-      width: auto;
-      margin: 50px 50px 0 50px;
-      display: flex;
-      flex-wrap: wrap;
-  
-      &-item {
-        height: 190px;
-        width: 390px;
-  
-        .item-content {
-          height: 80%;
-          width: 80%;
-          padding: 3%;
+<style lang="less" scoped>
+.content {
+  width: 100%;
+  height: 75%;
+  color: #fff;
+  font-size: 30px;
+
+  .content-menu-temp {
+    width: auto;
+    margin: 50px 50px 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-item {
+      height: 190px;
+      width: 390px;
+
+      .item-content {
+        height: 80%;
+        width: 80%;
+        padding: 3%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1.2rem;
+
+        .menu-name {
+          height: 60%;
+          width: 100%;
           display: flex;
-          flex-direction: column;
-          border-radius: 1.2rem;
-  
-          .menu-name {
-            height: 60%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            text-align: justify;
-  
-            .menu-title {
-              font-size: 35px;
-              width: 70%;
-              flex: 4;
-            }
-  
-            .menu-logo {
-              flex: 1;
-              padding-right: 15px;
-            }
-  
-            div {
-              flex: 1;
-            }
+          align-items: center;
+          text-align: justify;
+
+          .menu-title {
+            font-size: 35px;
+            width: 70%;
+            flex: 4;
           }
-  
-          .menu-tips {
-            height: 40%;
-            font-size: 1.4rem;
+
+          .menu-logo {
+            flex: 1;
+            padding-right: 15px;
           }
+
+          div {
+            flex: 1;
+          }
+        }
+
+        .menu-tips {
+          height: 40%;
+          font-size: 1.4rem;
         }
       }
     }
-  
   }
-  </style>
+
+}
+</style>

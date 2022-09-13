@@ -24,7 +24,25 @@ const router = createRouter({
         default: () => import('@/views/card/CardModuleView.vue'),
         Header: () => import('@/views/subTitle/SubTitleView.vue'),
         Footer: () => import('@/views/footer/FooterCardView.vue')
-      }
+      },
+      children: [
+        {
+          path: '/idCard',
+          component: () => import('@/views/card/IdCardView.vue')
+        },
+        {
+          path: '/socialCard',
+          component: () => import('@/views/card/SocialCardView.vue')
+        },
+        {
+          path: '/healthyCard',
+          component: () => import('@/views/card/HealthyCardView.vue')
+        },
+        {
+          path: '/nationalCard',
+          component: () => import('@/views/card/NationalCardView.vue')
+        }
+      ]
     },
     {
       path: '/go_payment',

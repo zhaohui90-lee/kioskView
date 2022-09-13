@@ -1,7 +1,22 @@
 <script setup lang="ts">
-// console.log('这里是读卡页面...');
+import type { CardModule } from "@/http/interface";
 import ContentSlot from "@/slot/content/ContentSlot.vue";
+import { useCardModuleStore } from "@/stores";
+import { onBeforeMount, ref } from "vue";
+const cardModuleStore = useCardModuleStore();
 
+const cardModule: Array<CardModule> = cardModuleStore.cardModule
+
+console.log('cardModule', cardModule);
+
+
+onBeforeMount(() => {
+
+})
+
+function selectCard() {
+  
+}
 </script>
 <template>
   <ContentSlot>
@@ -13,7 +28,9 @@ import ContentSlot from "@/slot/content/ContentSlot.vue";
           </div>
         </div>
         <div class="card-module-template">
-          <div class="card-item" v-for="item in 4" :key="item">读卡模板</div>
+          <div class="card-item" v-for="(item, index) in cardModule" @click="selectCard">
+            {{item.cardName}}
+          </div>
         </div>
       </div>
 
@@ -47,14 +64,13 @@ import ContentSlot from "@/slot/content/ContentSlot.vue";
     border-bottom: 1px solid #ccc;
   }
   &-template {
-    height: 85%;
     display: flex;
     flex-wrap: wrap;
     margin: 40px 125px 0 125px;
     
     .card-item {
-      width: 460px;
-      height: 224px;
+      width: 485px;
+      height: 210px;
     }
   }
 }

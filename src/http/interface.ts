@@ -86,7 +86,17 @@ export interface Menu {
     dept: string,
     type: string
   },
-  secMenu: []
+  cardType: Array<CardModule>,
+  secMenu: string[]
+}
+
+/**
+ * 读卡对象
+ */
+export interface CardModule {
+  cardId: number,
+  cardName: string,
+  icon: number
 }
 
 /**
