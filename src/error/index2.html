@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+
+// 1、js 是一门单线程语言，从上往下执行的，首先，主线程读取js代码，此时是同步的环境
+// 2、当主线程检测到异步操作，就会交给其他异步线程处理，然后继续执行主线程的的任务
+// 3、异步任务执行完毕之后，判断异步任务的类型，异步任务可分成宏任务和微任务，像setTimeout、setInterval属于宏任务，promise.then属于微任务，不同的任务进入不同的队列，等待主线程空闲时候调用。
+// 4、当主线程的的同步任务执行完毕之后，开始执行微任务队列里面的所有微任务，执行完微任务，就执行宏任务队列里面所有的宏任务
+// 5、执行完成之后，主线程开始询问任务队列里面是否还有等待的任务，如果有则进入主线程继续执行
+// ————————————————
+// 版权声明：本文为CSDN博主「开自瞄的钟馗」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+// 原文链接：https://blog.csdn.net/zhou981130/article/details/117691434
+  console.log('script start')
+
+  setTimeout(function(){
+      console.log('setTimeOut')
+  }, 0)
+
+  new Promise(function(resolve){
+      console.log('promise1') 
+      resolve()
+  }).then(function(){
+      console.log('promise2') 
+  })
+
+  console.log('script end')
+
+</script>
