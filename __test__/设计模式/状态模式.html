@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+class OffStateLight {
+  constructor(light) {
+    this.light = light
+  }
+
+  pressButton() {
+    console.log('弱光');
+    this.light.setState(this.light.weakStateLight)
+  }
+}
+
+class WeakStateLight {
+  constructor(light) {
+    this.light = light
+  }
+
+  pressButton() {
+    console.log('强光');
+    this.light.setState(this.light.strongStateLight)
+  }
+}
+
+class StrongStateLight {
+  constructor(light) {
+    this.light = light
+  }
+
+  pressButton() {
+    console.log('闪烁');
+    this.light.setState(this.light.flashStateLight)
+  }
+}
+
+class FlashStateLight {
+  constructor(light) {
+    this.light = light
+  }
+
+  pressButton() {
+    console.log('关闭');
+    this.light.setState(this.light.offStateLight)
+  }
+}
+
+class Light {
+
+  constructor() {
+    this.offStateLight = new OffStateLight(this)
+    this.weakStateLight = new WeakStateLight(this)
+    this.strongStateLight = new StrongStateLight(this)
+    this.flashStateLight = new FlashStateLight(this)
+    this.button = null
+  }
+
+  init() {
+    let button = document.createElement('button')
+    this.button = document.body.appendChild(button)
+    this.button.innerHTML = '开关'
+
+    this.currentState = this.offStateLight
+    this.button.onclick = () => {
+      this.currentState.pressButton()
+    }
+  }
+
+  setState(state) {
+    this.currentState = state
+  }
+}
+
+let light = new Light()
+light.init()
+
+
+</script>

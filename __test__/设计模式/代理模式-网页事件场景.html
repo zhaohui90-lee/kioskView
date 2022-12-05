@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="div1">
+    <a href="#">a1</a>
+    <a href="#">a2</a>
+    <a href="#">a3</a>
+    <a href="#">a4</a>
+    <a href="#">a5</a>
+  </div>
+</body>
+</html>
+<script>
+/**
+ * 代理模式，在某些情况下，一个对象不能直接访问另一个对象，需要一个第三者（代理）
+ * 牵线搭桥从而达到访问目的，这样的模式就是代理模式
+ * 
+ * 考虑到事件本身的冒泡特性，使用父节点`div`来代理子节点`a`的点击事件
+ */
+let div1 = document.getElementById('div1')
+div1.addEventListener('click', function(e){
+  e = e || window.event
+  console.log(e);
+  let target = e.target
+  // console.log(target);
+  if(e.stopPropagation) {
+    e.stopPropagation()
+  } else {
+    e.cancelBubble = true
+  }
+  // if(target.nodeName === 'A') {
+  //   console.log(target.innerHTML);
+  // }
+
+})
+</script>

@@ -4,9 +4,9 @@ import axios from "axios";
 /**
  * 获取服务版本号
  */
-export async function fetchSoftwareVersion(): Promise<any> {
-  let result;
-  await axios.post('http://localhost:3000/software', JSON.stringify({name: '1212'}))
+export async function fetchSoftwareVersion(): Promise<string> {
+  let result: any;
+  await axios.post('http://localhost:3000/software', JSON.stringify({ name: '1212' }))
     .then(res => {
       // 判断是否交易成功
       result = res.data

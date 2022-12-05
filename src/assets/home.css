@@ -5,55 +5,131 @@
   height: 72px;
 }
 .ico-plane.ico {
-  background: url("./img/43inch_icon/1.png") no-repeat;
+  background: url("./img/43inch_icon_s/101_icon_guahao@2x.png");
 }
 .ico-plane.ico-1 {
-  background: url("./img/43inch_icon/1.png") no-repeat;
+  background: url("./img/43inch_icon_s/101_icon_guahao@2x.png");
 }
 .ico-plane.ico0 {
-  background: url("./img/43inch_icon/1.png") no-repeat;
+  background: url("./img/43inch_icon_s/101_icon_guahao@2x.png");
 }
-.ico-plane.ico1 {
-  background: url("./img/43inch_icon/2.png") no-repeat;
+.ico-plane.ico101 {
+  background: url("./img/43inch_icon_s/101_icon_guahao@2x.png");
 }
-.ico-plane.ico2 {
-  background: url("./img/43inch_icon/3.png") no-repeat;
+.ico-plane.ico101.showGray {
+  background: url("./img/43inch_icon_s/101_icon_guahao@2x-gray.png");
 }
-.ico-plane.ico3 {
-  background: url("./img/43inch_icon/4.png") no-repeat;
+.ico-plane.ico102 {
+  background: url("./img/43inch_icon_s/102_icon_yuyue@2x.png");
 }
-.ico-plane.ico4 {
-  background: url("./img/43inch_icon/5.png") no-repeat;
+.ico-plane.ico102.showGray {
+  background: url("./img/43inch_icon_s/102_icon_yuyue@2x-gray.png");
 }
-.ico-plane.ico5 {
-  background: url("./img/43inch_icon/6.png") no-repeat;
+.ico-plane.ico103 {
+  background: url("./img/43inch_icon_s/103_icon_haoyuan@2x.png");
 }
-.ico-plane.ico6 {
-  background: url("./img/43inch_icon/7.png") no-repeat;
+.ico-plane.ico103.showGray {
+  background: url("./img/43inch_icon_s/103_icon_haoyuan@2x-gray.png");
 }
-.ico-plane.ico7 {
-  background: url("./img/43inch_icon/8.png") no-repeat;
+.ico-plane.ico104 {
+  background: url("./img/43inch_icon_s/104_icon_feiyong@2x.png");
 }
-.ico-plane.ico8 {
-  /*background-position: 0 -72px;*/
-  background: url("./img/43inch_icon/9.png") no-repeat;
+.ico-plane.ico104.showGray {
+  background: url("./img/43inch_icon_s/104_icon_feiyong@2x-gray.png");
 }
-.ico-plane.ico9 {
-  background: url("./img/43inch_icon/10.png") no-repeat;
+.ico-plane.ico105 {
+  background: url("./img/43inch_icon_s/105_icon_dayinji@2x.png");
 }
-.ico-plane.ico10 {
-  background: url("./img/43inch_icon/11.png") no-repeat;
+.ico-plane.ico105.showGray {
+  background: url("./img/43inch_icon_s/105_icon_dayinji@2x-gray.png");
 }
-.ico-plane.ico11 {
-  background: url("./img/43inch_icon/12.png") no-repeat;
+.ico-plane.ico106 {
+  background: url("./img/43inch_icon_s/106_icon_pintiao@2x.png");
 }
-.ico-plane.ico12 {
-  background: url("./img/43inch_icon/13.png") no-repeat;
+.ico-plane.ico106.showGray {
+  background: url("./img/43inch_icon_s/106_icon_pintiao@2x-gray.png");
 }
-.ico-plane.ico13 {
-  background: url("./img/43inch_icon/14.png") no-repeat;
+.ico-plane.ico107 {
+  background: url("./img/43inch_icon_s/107_icon_wujia@2x.png");
 }
-.ico-plane.ico14 {
-  background: url("./img/43inch_icon/15.png") no-repeat;
+.ico-plane.ico107.showGray {
+  background: url("./img/43inch_icon_s/107_icon_wujia@2x-gray.png");
 }
-
+.ico-plane.ico108 {
+  background: url("./img/43inch_icon_s/108_icon_recharge@2x.png");
+}
+.ico-plane.ico108.showGray {
+  background: url("./img/43inch_icon_s/108_icon_recharge@2x-gray.png");
+}
+.ico-plane.ico109 {
+  background: url("./img/43inch_icon_s/109_icon_printing@2x.png");
+}
+.ico-plane.ico109.showGray {
+  background: url("./img/43inch_icon_s/109_icon_printing@2x-gray.png");
+}
+.ico-plane.ico110 {
+  background: url("./img/43inch_icon_s/110_icon_kaidan@2x.png");
+}
+.ico-plane.ico110.showGray {
+  background: url("./img/43inch_icon_s/110_icon_kaidan@2x-gray.png");
+}
+.ico-plane.ico111 {
+  background: url("./img/43inch_icon_s/111_icon_CSI@2x.png");
+}
+.ico-plane.ico111.showGray {
+  background: url("./img/43inch_icon_s/111_icon_CSI@2x-gray.png");
+}
+.ico-plane.ico112 {
+  background: url("./img/43inch_icon_s/112_icon_card@2x.png");
+}
+.ico-plane.ico112.showGray {
+  background: url("./img/43inch_icon_s/112_icon_card@2x-gray.png");
+}
+.ico-plane.ico113 {
+  background: url("./img/43inch_icon_s/113_icon_star@2x.png");
+}
+.ico-plane.ico113.showGray {
+  background: url("./img/43inch_icon_s/113_icon_star@2x-gray.png");
+}
+.ico-plane.ico114 {
+  background: url("./img/43inch_icon_s/114_icon_medicine@2x.png");
+}
+.ico-plane.ico114.showGray {
+  background: url("./img/43inch_icon_s/114_icon_medicine@2x-gray.png");
+}
+.ico-plane.ico115 {
+  background: url("./img/43inch_icon_s/115_icon_pay@2x.png");
+}
+.ico-plane.ico115.showGray {
+  background: url("./img/43inch_icon_s/115_icon_pay@2x-gray.png");
+}
+.ico-plane.ico116 {
+  background: url("./img/43inch_icon_s/116_icon_system@2x.png");
+}
+.ico-plane.ico116.showGray {
+  background: url("./img/43inch_icon_s/116_icon_system@2x-gray.png");
+}
+.ico-plane.ico117 {
+  background: url("./img/43inch_icon_s/117_icon_tel@2x.png");
+}
+.ico-plane.ico117.showGray {
+  background: url("./img/43inch_icon_s/117_icon_tel@2x-gray.png");
+}
+.ico-plane.ico118 {
+  background: url("./img/43inch_icon_s/118_icon_project@2x.png");
+}
+.ico-plane.ico118.showGray {
+  background: url("./img/43inch_icon_s/118_icon_project@2x-gray.png");
+}
+.ico-plane.ico119 {
+  background: url("./img/43inch_icon_s/119_icon_me@2x.png");
+}
+.ico-plane.ico119.showGray {
+  background: url("./img/43inch_icon_s/119_icon_me@2x-gray.png");
+}
+.ico-plane.ico120 {
+  background: url("./img/43inch_icon_s/120_icon_face@2x.png");
+}
+.ico-plane.ico120.showGray {
+  background: url("./img/43inch_icon_s/120_icon_face@2x-gray.png");
+}

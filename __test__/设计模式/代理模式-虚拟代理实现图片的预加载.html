@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  let myImage = (function () {
+    let imgNode = document.createElement('img')
+    document.body.appendChild(imgNode)
+    return {
+      setSrc(src) {
+        imgNode.src = src
+      }
+    }
+  })()
+
+  let proxyImage = (function () {
+    let img = new Image;
+
+    img.onload = function () {
+      myImage.setSrc(this.src)
+    }
+
+
+    return {
+      setSrc(src) {
+        myImage.setSrc('file:///Users/lizhaohui/Downloads/20210326165811.png')
+        img.src = src
+      }
+    }
+  })()
+
+  proxyImage.setSrc('https://img2.baidu.com/it/u=1395980100,2999837177&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=675')
+</script>

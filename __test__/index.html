@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kioskView首页</title>
+  <link rel="stylesheet" href="./normalize.css">
+  <script src="../node_modules/moment/moment.js"></script>
+  <style>
+    
+    .module {
+      font-size: 30px;
+      width: 100%;
+      border: 1px solid #f00;
+    }
+    .module.part-top {
+      display: flex;
+      height: 140px;
+    }
+    .module.part-top .head-left {
+      flex: 2;
+    }
+    .module.part-top .head-left .logo-hospital-area {
+      height: 140px;
+      background: url('../src/assets/img/logo/hospital_logo_浙大眼科.png') center/80% no-repeat;
+    }
+    .module.part-top .head-right {
+      flex: 1;
+    }
+    .module.part-top .head-right {
+      display: flex;
+      height: 100%;
+    }
+    .module.part-top .head-right .jd-date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 80%;
+      margin: auto 0;
+    }
+    .module.part-top .head-right .jd-date .jd-date-time {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .module.part-top .head-right .jd-date .jd-date-date {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+    }
+    .module.part-top .head-right .jd-week {
+      flex: 1;
+      text-align: center;
+      margin: auto 0;
+    }
+    .module.part-ad {
+      height: 610px;
+    }
+    .module.part-main {
+      height: 1170px;
+    }
+    .module.part-main .menu-content {
+      height: 1030px;
+      border: 1px solid #000;
+    }
+    .module.part-main .userinfo-content {
+      height: 140px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="module part-top">
+    <div class="head-left">
+      <div class="logo-hospital-area"></div>
+    </div>
+    <div class="head-right">
+      <div class="jd-date">
+        <div id="jd-date-time" class="jd-date-time"></div>
+        <div id="jd-date-date" class="jd-date-date"></div>
+      </div>
+      <div id="jd-week" class="jd-week"></div>
+    </div>
+  </div>
+  <div class="module part-ad">
+    <div class="ad-iframe"></div>
+  </div>
+  <div class="module part-main">
+    <div class="part-main menu-content">菜单区域</div>
+    <div class="part-main userinfo-content">用户区域</div>
+  </div>
+</body>
+</html>
+<script>
+  /**
+   * 格式： 1080*1920 或者 1280*1080
+   * 
+   * 
+   * 
+   * */
+  const $jd_date_time = document.getElementById('jd-date-time')
+  const $jd_date_date = document.getElementById('jd-date-date')
+  const $jd_week = document.getElementById('jd-week')
+
+  setInterval(() => {
+    $jd_date_time.innerHTML = moment().format('HH:mm:ss')
+    $jd_date_date.innerHTML = moment().format('YYYY-MM-DD')
+  }, 500);
+
+  const weekToCN = [
+    {
+      code: '0',
+      value: '星期天',
+    },
+    {
+      code: '1',
+      value: '星期一',
+    },
+    {
+      code: '2',
+      value: '星期二',
+    },
+    {
+      code: '3',
+      value: '星期三',
+    },
+    {
+      code: '4',
+      value: '星期四',
+    },
+    {
+      code: '5',
+      value: '星期五',
+    },
+    {
+      code: '6',
+      value: '星期六',
+    }
+  ]
+  $jd_week.innerHTML = weekToCN.find(item => item.code === moment().format('d')).value
+</script>
