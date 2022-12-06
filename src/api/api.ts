@@ -1,4 +1,4 @@
-import $axios from "./api";
+import { fetch } from "./index";
 
 /**
  * 获取设备信息
@@ -6,7 +6,7 @@ import $axios from "./api";
  * @returns 
  */
 export const deviceInfo = (params: InDeviceInfo): Promise<DeviceInfo | any> => {
-  return $axios({
+  return fetch({
     url: '/device',
     method: 'post',
     params

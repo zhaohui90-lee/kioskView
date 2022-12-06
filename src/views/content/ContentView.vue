@@ -2,7 +2,7 @@
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
-import type { Menu } from '@/http/interface';
+import type { Menu } from '@/http/api
 import api from "@/http/index";
 import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
 
