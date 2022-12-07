@@ -1,0 +1,216 @@
+{
+  "msg": "设备菜单",
+  "code": "0",
+  "data": [
+    {
+      "id": 614,
+      "name": "当日挂号",
+      "sort": 1,
+      "logo": "1",
+      "url": "",
+      "flag": "big",
+      "tips": "支付宝 微信 现金 银行卡 支付宝刷脸",
+      "function": {
+        "id": 482,
+        "name": "挂号",
+        "description": null,
+        "url": "./#go_register",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 616,
+      "name": "缴费",
+      "sort": 2,
+      "logo": "4",
+      "url": null,
+      "flag": "big",
+      "tips": "现金 银行卡 支付宝 支付宝刷脸 微信 账户支付",
+      "function": {
+        "id": 466,
+        "name": "门诊缴费",
+        "description": "",
+        "url": "./#go_payment",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "cardType": [
+        {
+          "cartId": 10,
+          "cardName": "身份证",
+          "icon": 23
+        },
+        {
+          "cardName": "社保卡"
+        },
+        {
+          "cardName": "电子健康卡"
+        },
+        {
+          "cardName": "国家电子凭证"
+        }
+      ],
+      "secMenu": []
+    },
+    {
+      "id": 614,
+      "name": "预约",
+      "sort": 3,
+      "logo": "4",
+      "url": "",
+      "flag": "big",
+      "tips": "支付宝 微信 现金 银行卡 支付宝刷脸",
+      "function": {
+        "id": 1,
+        "name": "预约",
+        "description": null,
+        "url": "./#go_order",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 607,
+      "name": "取号",
+      "sort": 4,
+      "logo": "0",
+      "url": null,
+      "flag": "big",
+      "tips": "自助预约 预约平台 手机预约 电话预约",
+      "function": {
+        "id": 467,
+        "name": "预约取号",
+        "description": "",
+        "url": "./#go_appointment",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 613,
+      "name": "出院结算",
+      "sort": 5,
+      "logo": "5",
+      "url": "",
+      "flag": "big",
+      "tips": "多退少补",
+      "function": {
+        "id": 481,
+        "name": "出院结算",
+        "description": null,
+        "url": "./#go_outPatientSettlement",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "cardType": [
+        {
+          "cardName": "身份证"
+        },
+        {
+          "cardName": "社保卡"
+        },
+        {
+          "cardName": "电子健康卡"
+        },
+        {
+          "cardName": "国家电子凭证"
+        }
+      ],
+      "secMenu": []
+    },
+    {
+      "id": 620,
+      "name": "住院日清单",
+      "sort": 13,
+      "logo": "9",
+      "url": null,
+      "flag": "small",
+      "tips": "当日挂号: 7点-16点",
+      "function": {
+        "id": 482,
+        "name": "住院日清单",
+        "description": null,
+        "url": "./#go_inPatientDailyList",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 614,
+      "name": "出院费用查询",
+      "sort": 5,
+      "logo": "5",
+      "url": "",
+      "flag": "big",
+      "tips": "查询出院费用记录",
+      "function": {
+        "id": 482,
+        "name": "出院费用查询",
+        "description": null,
+        "url": "./#go_outPatientFeeInfo",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 614,
+      "name": "预缴金充值",
+      "sort": 6,
+      "logo": "4",
+      "url": "",
+      "flag": "big",
+      "tips": "支付宝 微信 现金 银行卡 支付宝刷脸",
+      "function": {
+        "id": 482,
+        "name": "预缴金充值",
+        "description": null,
+        "url": "./#go_inPatientPrepay",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 623,
+      "name": "每日巡检",
+      "sort": 33,
+      "logo": "8",
+      "url": null,
+      "flag": "small",
+      "tips": "导医每天巡检设备，保证设备正常运行",
+      "function": {
+        "id": 488,
+        "name": "每日巡检",
+        "description": null,
+        "url": "./#go_testPrint",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    }
+  ]
+}

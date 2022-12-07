@@ -1,4 +1,4 @@
-import type { CardModule } from '@/http/api'
+import type { CardModule } from '@/shared'
 import { defineStore } from 'pinia'
 import { ref, type Ref } from 'vue'
 

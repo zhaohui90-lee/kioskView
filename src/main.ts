@@ -13,4 +13,4 @@ app.use(createPinia()).use(router)
 
 app.mount('#app')
 
-console.log(import.meta.env['mock']);
+import.meta.env.MODE = 'mock'

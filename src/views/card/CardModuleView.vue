@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { CardModule } from "@/http/api
+import type { CardModule } from "@/shared"
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useCardModuleStore } from "@/stores";
 import { onBeforeMount, ref } from "vue";

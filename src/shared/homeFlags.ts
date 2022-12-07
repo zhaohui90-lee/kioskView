@@ -1,17 +1,3 @@
-import { fetch } from "./index";
-
-/**
- * 获取设备信息
- * @param params 设备编号
- * @returns 
- */
-export const deviceInfo = (params: InDeviceInfo): Promise<DeviceInfo | any> => {
-  return fetch({
-    url: '/device',
-    method: 'post',
-    params
-  })
-}
 
 /**
  * 获取设备数据
@@ -32,16 +18,6 @@ export interface DeviceInfo {
   }
 }
 
-/**
- * 获取软件版本号
- * @returns 
- */
-export const softwareVersion = (): Promise<SoftwareVersion | any> => {
-  return $axios({
-    url: '/software',
-    method: 'post'
-  })
-}
 
 /**
  * 软件版本
@@ -52,18 +28,6 @@ export interface SoftwareVersion {
   data: string
 }
 
-/**
- * 获取菜单信息
- * @param params 设备编号
- * @returns 
- */
-export const menu = (params: InDeviceInfo): Promise<Menu | any> => {
-  return $axios({
-    url: '/menu',
-    method: 'post',
-    params
-  })
-}
 
 /**
  * 菜单结构
@@ -119,10 +83,4 @@ export interface UserInfo {
   homeBtn: boolean,
   logBtn: boolean,
   returnBtn: boolean
-}
-
-export default {
-  deviceInfo,
-  softwareVersion,
-  menu
 }

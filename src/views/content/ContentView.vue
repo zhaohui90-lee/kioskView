@@ -2,9 +2,10 @@
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
-import type { Menu } from '@/http/api
-import api from "@/http/index";
+import { fetchPost } from "@/http";
+import api from "@/api";
 import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
+import type { Menu } from "@/shared";
 
 const menuArray = ref<Menu[]>([])
 
@@ -40,28 +41,26 @@ function goMenu(target: string, targetName: string) {
 }
 
 onBeforeMount(() => {
-  console.log('content before mounted....');
-  api.menu({
+  console.log('===>', api['getMenuByDeviceNo']);
+  
+  fetchPost(api['getMenuByDeviceNo'], {
     deviceNo: '001'
   }).then(res => {
     menuArray.value = res.data
   })
-
 })
 
 onMounted(() => {
-  console.log('content mounted...');
 
 })
 
 onBeforeUpdate(function () {
-  console.log('content before update....');
 
 })
 
 
 onUpdated(() => {
-  console.log('content updated');
+
 })
 
 

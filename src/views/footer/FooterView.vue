@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import FooterSlot from '@/slot/footer/FooterSlot.vue';
 import { onBeforeMount, ref } from 'vue';
-import api from "@/http/index";
+import { fetchPost } from "@/http";
+import api from "@/api";
 const welcomeMessage = ref<String>('欢迎使用')
 
 const deviceNumber = ref<String>('001')
@@ -11,16 +12,14 @@ const ipAddr = ref<String>('')
 
 onBeforeMount(() => {
   // 获取设备信息
-  api.deviceInfo({
+  fetchPost(api['getDeviceInfo'], {
     deviceNo: deviceNumber.value.toString()
   }).then(res => {
-    // console.log(res);
-    
     ipAddr.value = res.data.ip
   })
 
   // 获取软件版本
-  api.softwareVersion()
+  fetchPost(api['getSwVersion'], {})
     .then(res => {
       softwareVersion.value = res.data
     })
@@ -50,46 +49,46 @@ onBeforeMount(() => {
   </FooterSlot>
 </template>
 <style lang="less" scoped>
-  .userinfo-temp {
-    height: 100%;
+.userinfo-temp {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &-img {
+    width: 50%;
+    height: 90px;
+    background: url(@/assets/img/userHeaderImg.png) center no-repeat;
+  }
+
+  &-msg {
+    color: #fff;
+    font-size: 35px;
+    text-align: center;
+  }
+}
+
+.device-info-temp {
+  background: var(--gray-700);
+  height: 90px;
+  border-radius: 24px;
+  color: #fff;
+  text-align: center;
+
+  .device-info {
     display: flex;
     align-items: center;
+    font-size: 20px;
+    height: 50%;
 
-    &-img {
-      width: 50%;
-      height: 90px;
-      background: url(@/assets/img/userHeaderImg.png) center no-repeat;
-    }
-
-    &-msg {
-      color: #fff;
-      font-size: 35px;
-      text-align: center;
+    .device-number,
+    .software-version {
+      flex: 1;
     }
   }
 
-  .device-info-temp {
-    background: var(--gray-700);
-    height: 90px;
-    border-radius: 24px;
-    color: #fff;
-    text-align: center;
-
-    .device-info {
-      display: flex;
-      align-items: center;
-      font-size: 20px;
-      height: 50%;
-
-      .device-number,
-      .software-version {
-        flex: 1;
-      }
-    }
-
-    .ip-addr {
-      font-size: 30px;
-      height: 50%;
-    }
+  .ip-addr {
+    font-size: 30px;
+    height: 50%;
   }
+}
 </style>

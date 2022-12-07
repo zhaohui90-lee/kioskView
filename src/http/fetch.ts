@@ -7,7 +7,7 @@ axios.defaults.headers.post["Accpet"] = "application/json"
 axios.defaults.baseURL = ""
 
 const instance = axios.create({
-  baseURL: "http://localhost:3000/api"
+  baseURL: ""
 })
 
 // 请求拦截器
@@ -146,10 +146,10 @@ instance.interceptors.response.use(
 /**
  * 这里提供的get交易
  * @param url 
- * @param data 
+ * @param conf 
  * @returns 
  */
-export function get(url: string, data: any): Promise<any> {
+export function get(url: string, conf?: any): Promise<any> {
   if (url.indexOf("[SOCKETIOERROR]") > -1) {
     return Promise.reject({
       code: "-1",
@@ -158,12 +158,8 @@ export function get(url: string, data: any): Promise<any> {
   }
 
   return new Promise((resolve, reject) => {
-    instance.get(url, data).then(res => {
-      if (res.data.code === 0) {
-        resolve(res.data.data)
-      } else {
-        reject(res.data)
-      }
+    instance.get(url, conf).then(res => {
+      resolve(res)
     })
       .catch(error => {
         reject(error)
@@ -175,8 +171,9 @@ export function get(url: string, data: any): Promise<any> {
  * 
  * @param url 
  * @param data 
+ * @param conf
  */
-export function post(url: string, data: any): Promise<any> {
+export function post(url: string, data: any, conf?: any): Promise<any> {
   if (url.indexOf("[SOCKETIOERROR]") > -1) {
     return Promise.reject({
       code: "-1",
@@ -185,18 +182,13 @@ export function post(url: string, data: any): Promise<any> {
   }
 
   return new Promise((resolve, reject) => {
-    instance.post(url, data).then(res => {
-      if (res.data.code === 0) {
-        resolve(res.data.data)
-      } else {
-        reject(res.data)
-      }
+    instance.post(url, data, conf).then(res => {
+      resolve(res)
     })
       .catch(error => {
         reject(error)
       })
   })
 }
-
 
 export default instance
