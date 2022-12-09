@@ -1,3 +1,5 @@
+import { config } from "./config";
+
 export const apiConfig: any = {
 
 	getSwVersion: { dev: "/api/device/getSoftwareVersion", mock: "/mock/softwareVersion.json" },
@@ -11,12 +13,10 @@ export const apiConfig: any = {
 
 let __api__: any = {}
 
-const __env__ = 'mock'
-
 Object.keys(apiConfig).forEach(item => {
 	Object.defineProperty(__api__, item, {
 		get() {
-			if (__env__ === 'mock') {
+			if (config.__env__ === 'mock') {
 				return apiConfig[item]['mock']
 			} else {
 				return apiConfig[item]['dev']

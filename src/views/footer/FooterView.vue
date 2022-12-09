@@ -30,13 +30,16 @@ onBeforeMount(() => {
 </script>
 <template>
   <FooterSlot>
+
     <template #footer-left>
       <div class="userinfo-temp">
         <div class="userinfo-temp-img"></div>
         <div class="userinfo-temp-msg">{{ welcomeMessage }}</div>
       </div>
     </template>
+
     <template #footer-middle></template>
+
     <template #footer-right>
       <div class="device-info-temp">
         <div class="device-info">
@@ -46,6 +49,7 @@ onBeforeMount(() => {
         <div class="ip-addr">IP地址：{{ ipAddr }}</div>
       </div>
     </template>
+    
   </FooterSlot>
 </template>
 <style lang="less" scoped>
@@ -56,13 +60,14 @@ onBeforeMount(() => {
 
   &-img {
     width: 50%;
-    height: 90px;
+    height: 160px;
     background: url(@/assets/img/userHeaderImg.png) center no-repeat;
   }
 
   &-msg {
     color: #fff;
-    font-size: 35px;
+    font-size: var(--kiosk-font-size-large);
+    line-height: var(--kiosk-line-height-large);
     text-align: center;
   }
 }

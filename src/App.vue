@@ -4,7 +4,7 @@ import Home from './components/Home.vue'
 </script>
 
 <template>
-  <Home class="top-app"></Home>      
+  <Home class="top-app"></Home>
 
 </template>
 

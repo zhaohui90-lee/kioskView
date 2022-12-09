@@ -13,29 +13,16 @@ setInterval(() => {
   second.value = moment().format('ss')
 }, 1000)
 </script>
-  <template>
+<template>
   <div class="timer-temp">
-    <div class="timer-temp-hour">{{ hour }}</div>
-    <div class="timer-temp-minute">:{{ minute }}</div>
-    <div class="timer-temp-second">:{{ second }}</div>
+    {{ hour }}:{{  minute  }}:{{  second  }}
   </div>
 </template>
-  <style lang="less" scoped>
-  .timer-temp {
-    color: var(--black);
-  
-    &-hour {
-      display: inline-block;
-      font-size: 36px;
-    }
-  
-    &-minute {
-      display: inline-block;
-      font-size: 36px;
-    }
-    &-second {
-      display: inline-block;
-      font-size: 36px;
-    }
-  }
-  </style>
+<style lang="less" scoped>
+.timer-temp {
+  text-align: center;
+  color: var(--el-text-color-primary);
+  font-size: var(--kiosk-font-size-extra-large);
+  line-height: var(--kiosk-line-height-extra-large);
+}
+</style>

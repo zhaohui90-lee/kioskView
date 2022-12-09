@@ -3,10 +3,12 @@ import HeaderSlot from '@/slot/header/HeaderSlot.vue';
 import HospitalLogo from '@/components/HospitalLogo.vue';
 import ClockDate from '@/components/ClockDate.vue';
 import ClockTimer from '@/components/ClockTimer.vue';
+import ClockWeek from "@/components/ClockWeek.vue";
 </script>
 
 <template>
   <HeaderSlot class="title-container">
+
     <template #header-left>
       <HospitalLogo></HospitalLogo>
     </template>
@@ -17,9 +19,13 @@ import ClockTimer from '@/components/ClockTimer.vue';
           <ClockTimer></ClockTimer>
           <ClockDate></ClockDate>
         </div>
-        <div class="fill-content"></div>
+        <div class="fill-content">
+          <clock-week></clock-week>
+        </div>
       </div>
     </template>
+
+
   </HeaderSlot>
 </template>
 
@@ -30,12 +36,11 @@ import ClockTimer from '@/components/ClockTimer.vue';
 
 .home-timer {
   display: flex;
+  align-items: center;
   height: 100%;
 
   &-clock {
-    flex-direction: column;
     width: 60%;
-    flex: 1;
   }
 
   .fill-content {

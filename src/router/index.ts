@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import TitleView from '@/views/title/TitleView.vue'
 import ContentView from '@/views/content/ContentView.vue'
 import FooterView from '@/views/footer/FooterView.vue'
+import AdView from '@/views/ad/AdView.vue'
 
 
 const router = createRouter({
@@ -12,7 +13,8 @@ const router = createRouter({
       path: '/',
       name: 'home',
       components: {
-        default: ContentView,
+        Content: ContentView,
+        Ad: AdView,
         Header: TitleView,
         Footer: FooterView
       }

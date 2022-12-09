@@ -1,91 +1,10 @@
-.menu-bg-color-0 {
-  background-color: #e7aa27 !important;
-}
-
-.menu-bg-color-1 {
-  background-color: #33c8db !important;
-}
-
-.menu-bg-color-2 {
-  background-color: #e3514e !important;
-}
-
-.menu-bg-color-3 {
-  background-color: #9e6bec !important;
-}
-
-.menu-bg-color-4 {
-  background-color: #5787e1 !important;
-}
-
-.menu-bg-color-5 {
-  background-color: #3dbc5f !important;
-}
-
-.menu-bg-color-6 {
-  background-color: #e661a3 !important;
-}
-
-.menu-bg-color-7 {
-  background-color: #f6a249 !important;
-}
-
-.menu-bg-color-8 {
-  background-color: #8699ef !important;
-}
-
-.menu-bg-color-9 {
-  background-color: #6b3fb1 !important;
-}
-
-/* 表现层 */
-body.red-theme {
-  --main:#dc3545;
-  --light:#e83e8c;
-  --deep:#17a2b8;
-}
-
 :root {
-  --gray-100: #f8f9fa;
-  --gray-200: #e9ecef;
-  --gray-300: #dee2e6;
-  --gray-400: #ced4da;
-  --gray-500: #adb5bd;
-  --gray-600: #6c757d;
-  --gray-700: #495057;
-  --gray-800: #343a40;
-  --gray-900: #212529;
-  --blue: #007bff;
-  --indigo: #6610f2;
-  --purple: #6f42c1;
-  --pink: #e83e8c;
-  --red: #dc3545;
-  --orange: #fd7e14;
-  --yellow: #ffc107;
-  --deep_yellow: #ec8430;
-  --green: #28a745;
-  --teal: #20c997;
-  --cyan: #17a2b8;
-  --white: #fff;
-  --gray: #e9ecef;
-  --gray-dark: #343a40;
-  --main: #2f94e4;
-  --main_light: #32A6FF;
-  --main_light_2: #32A6FF;
-  --main_deep: #3079C3;
-  --main_btn: #32A6FF;
-  --main_opacity_1: rgba(47, 148, 228, 0.1);
-  --main_opacity_2: rgba(47, 148, 228, 0.2);
-  --main_opacity_3: rgba(47, 148, 228, 0.3);
-  --main_opacity_5: rgba(47, 148, 228, 0.5);
-  --blank: #498fb3;
-  --black: #000;
-  --assertive: #cf3a7d;
-  --light: #fff;
-  --deep: #164241;
-  --breakpoint-xs: 0;
-  --breakpoint-sm: 576px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --kiosk-font-size-base: 14px;
+  --kiosk-font-size-medium: 20px;
+  --kiosk-font-size-large: 30px;
+  --kiosk-font-size-extra-large: 38px;
+  --kiosk-line-height-base: 22px;
+  --kiosk-line-height-medium: 28px;
+  --kiosk-line-height-large: 38px;
+  --kiosk-line-height-extra-large: 46px;
 }

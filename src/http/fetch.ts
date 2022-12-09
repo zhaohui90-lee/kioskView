@@ -10,10 +10,12 @@ const instance = axios.create({
   baseURL: ""
 })
 
-// 请求拦截器
+/**
+ * 请求拦截器 先进后出
+ */
 instance.interceptors.request.use(
   config => {
-
+    
     // Tip: 1
     // 请求开始的时候可以结合 vuex 开启全屏的 loading 动画
 
@@ -59,11 +61,12 @@ instance.interceptors.request.use(
   }
 )
 
-// 相应拦截器
+/**
+ * 相应拦截器 先进先出
+ */
 instance.interceptors.response.use(
   response => {
     let data
-    console.log('====>', response);
     // IE9时response.data是undefined，因此需要使用response.request.responseText(Stringify后的字符串)
     if (response.data === undefined) {
       data = JSON.parse(response.request.responseText)

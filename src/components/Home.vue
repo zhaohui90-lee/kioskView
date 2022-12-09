@@ -26,9 +26,10 @@ onUpdated(() => {
 
 <template>
   <div class="home">
-    <RouterView class="view main-header" name="Header"></RouterView>
-    <RouterView class="view main-content"></RouterView>
-    <RouterView class="view main-footer" name="Footer"></RouterView>
+    <router-view class="view main-header" name="Header"></router-view>
+    <router-view class="view main-ad" name="Ad"></router-view>
+    <router-view class="view main-content" name="Content"></router-view>
+    <router-view class="view main-footer" name="Footer"></router-view>
   </div>
 
 </template>
@@ -37,8 +38,5 @@ onUpdated(() => {
 .home {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-
 }
 </style>

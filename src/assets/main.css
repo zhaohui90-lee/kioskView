@@ -1,15 +1,18 @@
 @import "./base.css";
-@import url("./home.css");
-@import url("./global.css");
+/* @import url("./home.css"); */
+/* @import url("./global.css"); */
 
-#app {
+
+/* #app {
   width: 1280px;
   height: 1080px;
   background: url(./img/43inch-footer-bg.png) center/120%;
-}
+} */
 
 body div,
 body span,
 body i {
-  font-family: Calibri, Segoe, Segoe UI, 微软雅黑;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
 }

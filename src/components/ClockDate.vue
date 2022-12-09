@@ -13,7 +13,9 @@ setInterval(() => {
 </template>
   <style lang="less" scoped>
   .date-temp {
-    font-size: 25px;
-    color: var(--gray-900);
+    text-align: center;
+    font-size: var(--kiosk-font-size-large);
+    line-height: var(--kiosk-line-height-large);
+    color: var(--el-text-color-primary);
   }
   </style>

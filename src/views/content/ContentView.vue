@@ -42,7 +42,7 @@ function goMenu(target: string, targetName: string) {
 
 onBeforeMount(() => {
   console.log('===>', api['getMenuByDeviceNo']);
-  
+
   fetchPost(api['getMenuByDeviceNo'], {
     deviceNo: '001'
   }).then(res => {
@@ -71,7 +71,7 @@ onUpdated(() => {
     <template #main-content>
       <div class="content">
 
-        <div class="content-menu-temp">
+        <!-- <div class="content-menu-temp">
           <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
             <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url, item.name)">
               <div class="menu-name">
@@ -81,8 +81,21 @@ onUpdated(() => {
               <div class="menu-tips">{{ item.tips }}</div>
             </div>
           </div>
-
-        </div>
+        </div> -->
+        <el-row :gutter="20">
+          <el-col :span="6">
+            <div class="grid-content ep-bg-purple" />
+          </el-col>
+          <el-col :span="6">
+            <div class="grid-content ep-bg-purple" />
+          </el-col>
+          <el-col :span="6">
+            <div class="grid-content ep-bg-purple" />
+          </el-col>
+          <el-col :span="6">
+            <div class="grid-content ep-bg-purple" />
+          </el-col>
+        </el-row>
       </div>
     </template>
 
@@ -93,13 +106,14 @@ onUpdated(() => {
 <style lang="less" scoped>
 .content {
   width: 100%;
-  height: 75%;
+  height: 1030px;
   color: #fff;
   font-size: 30px;
+  background: url('@/assets/img/43inch-footer-bg.png') center/120% no-repeat;
+
 
   .content-menu-temp {
     width: auto;
-    margin: 50px 50px 0 50px;
     display: flex;
     flex-wrap: wrap;
 
