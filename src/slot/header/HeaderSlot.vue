@@ -27,7 +27,7 @@
 <style lang="less" scoped>
 .sub-header {
   width: 100%;
-  height: 120px;
+  // height: 120px;
   display: flex;
   align-items: center;
 

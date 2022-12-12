@@ -9,6 +9,27 @@
   background: url(./img/43inch-footer-bg.png) center/120%;
 } */
 
+@media screen and (min-width: 1281px) {
+  html {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 1081px) and (max-width: 1280px) {
+  html {
+    font-size: 20px;
+    width: 1280px;
+    height: 1024px;
+    background: url('./img/43inch-header-bg.png') center/120% no-repeat;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 1080px) {
+  html {
+    font-size: 20px;
+    width: 1080px;
+    height: 1920px;
+    background: url('./img/43inch-footer-bg.png') center/140% no-repeat;
+  }
+}
 body div,
 body span,
 body i {

@@ -15,14 +15,16 @@ setInterval(() => {
 </script>
 <template>
   <div class="timer-temp">
+    <strong>
     {{ hour }}:{{  minute  }}:{{  second  }}
+    </strong>
   </div>
 </template>
 <style lang="less" scoped>
 .timer-temp {
   text-align: center;
   color: var(--el-text-color-primary);
-  font-size: var(--kiosk-font-size-extra-large);
-  line-height: var(--kiosk-line-height-extra-large);
+  font-size: var(--font-size-extra-large);
+  line-height: var(--line-height-extra-large);
 }
 </style>

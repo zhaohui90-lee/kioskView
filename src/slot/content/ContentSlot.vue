@@ -8,7 +8,7 @@
 </template>
 <style lang="less" scoped>
   .main-content {
-    height: 1030px;
+    // height: 1030px;
     width: 100%;
   }
 </style>

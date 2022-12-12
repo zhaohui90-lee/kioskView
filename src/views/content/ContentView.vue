@@ -106,10 +106,9 @@ onUpdated(() => {
 <style lang="less" scoped>
 .content {
   width: 100%;
-  height: 1030px;
   color: #fff;
   font-size: 30px;
-  background: url('@/assets/img/43inch-footer-bg.png') center/120% no-repeat;
+  // background: url('@/assets/img/43inch-footer-bg.png') center/120% no-repeat;
 
 
   .content-menu-temp {

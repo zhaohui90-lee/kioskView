@@ -1,10 +1,10 @@
 :root {
-  --kiosk-font-size-base: 14px;
-  --kiosk-font-size-medium: 20px;
-  --kiosk-font-size-large: 30px;
-  --kiosk-font-size-extra-large: 38px;
-  --kiosk-line-height-base: 22px;
-  --kiosk-line-height-medium: 28px;
-  --kiosk-line-height-large: 38px;
-  --kiosk-line-height-extra-large: 46px;
+  --font-size-base: 0.7rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.5rem;
+  --font-size-extra-large: 1.9rem;
+  --line-height-base: 1.1rem;
+  --line-height-medium: 1.4rem;
+  --line-height-large: 1.9rem;
+  --line-height-extra-large: 2.3rem;
 }

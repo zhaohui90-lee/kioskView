@@ -30,9 +30,6 @@ import ClockWeek from "@/components/ClockWeek.vue";
 </template>
 
 <style lang="less" scoped>
-.title-container {
-  background: url('@/assets/img/43inch-header-bg.png') center/110%;
-}
 
 .home-timer {
   display: flex;

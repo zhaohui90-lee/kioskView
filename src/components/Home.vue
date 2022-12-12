@@ -36,7 +36,36 @@ onUpdated(() => {
 
 <style lang="less">
 .home {
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
+  // min-width: 1080px;
+}
+@media screen and (max-width: 1080px) {
+  .main-header {
+    height: 120px;
+  }
+  .main-ad {
+    height: 610px;
+  }
+  .main-content {
+    height: 1030px;
+  }
+  .main-footer {
+    height: 160px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .main-header {
+    height: 120px;
+  }
+  .main-ad {
+    display: none;
+  }
+  .main-content {
+    height: 744px;
+  }
+  .main-footer {
+    height: 160px;
+  }
 }
 </style>

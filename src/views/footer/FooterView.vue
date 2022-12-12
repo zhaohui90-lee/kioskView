@@ -33,7 +33,9 @@ onBeforeMount(() => {
 
     <template #footer-left>
       <div class="userinfo-temp">
-        <div class="userinfo-temp-img"></div>
+        <div class="userinfo-temp-img">
+          <img src="@/assets/img/userHeaderImg.png" alt="">
+        </div>
         <div class="userinfo-temp-msg">{{ welcomeMessage }}</div>
       </div>
     </template>
@@ -59,30 +61,31 @@ onBeforeMount(() => {
   align-items: center;
 
   &-img {
-    width: 50%;
-    height: 160px;
-    background: url(@/assets/img/userHeaderImg.png) center no-repeat;
+    // height: 160px;
+    flex: 1;
+    text-align: center;
   }
 
   &-msg {
     color: #fff;
-    font-size: var(--kiosk-font-size-large);
-    line-height: var(--kiosk-line-height-large);
-    text-align: center;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
+    text-align: left;
+    flex: 2;
   }
 }
 
 .device-info-temp {
   background: var(--gray-700);
-  height: 90px;
-  border-radius: 24px;
+  height: 100%;
   color: #fff;
   text-align: center;
 
   .device-info {
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: var(--font-size-medium);
+    line-height: var(--line-height-medium);
     height: 50%;
 
     .device-number,
@@ -92,7 +95,8 @@ onBeforeMount(() => {
   }
 
   .ip-addr {
-    font-size: 30px;
+    font-size: var(--font-size-large);
+    line-height: var(--line-height-large);
     height: 50%;
   }
 }

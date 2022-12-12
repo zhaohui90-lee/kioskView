@@ -46,8 +46,8 @@ let week = ref(weekToCN.find(item => item.code === moment().format('d')).value)
 
 <style lang="less" scoped>
 .temp-week {
-  font-size: var(--kiosk-font-size-large);
-  line-height: var(--kiosk-line-height-large);
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-large);
   color: var(--el-text-color-primary);
 }
 </style>
