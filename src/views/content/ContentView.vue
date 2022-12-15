@@ -122,14 +122,14 @@ width = 1240px = 62rem
       <div class="content">
 
         <div class="content-menu-temp">
-          <div class="content-menu-temp-item" :data-type="item.flag" v-for="(item, index) in menuArray" :key="item.id">
+          <div class="content-menu-temp-item" :class="[`menu-bg-color-${index}-s`]" :data-type="item.flag" v-for="(item, index) in menuArray" :key="item.id">
 
-            <div class="item-content" :class="[`menu-bg-color-${index}`]" @click="goMenu(item.function.url, item.name)">
-              <div class="menu-name">
+            <div class="item-content" @click="goMenu(item.function.url, item.name)">
+              <div class="menu-name menu-name-wrap">
                 <div class="menu-title">{{ item.name }}</div>
                 <div class="menu-logo ico-plane" :class="`ico${item.logo}`"></div>
               </div>
-              <div class="menu-tips">{{ item.tips }}</div>
+              <!-- <div class="menu-tips">{{ item.tips }}</div> -->
             </div>
 
           </div>
@@ -150,6 +150,7 @@ width = 1240px = 62rem
   flex-flow: row wrap;
   row-gap: 1rem;
   column-gap: 1rem;
+  padding-top: 2rem;
 
 
   @media screen and (max-width: 1080px) {
@@ -191,8 +192,21 @@ width = 1240px = 62rem
       flex-grow: 1;
       height: 6.73rem;
       padding: 1.5rem;
+      border-radius: 1.5rem;
       font-size: var(--font-size-large);
       line-height: var(--line-height-large);
+
+      .menu-name {
+        display: flex;
+        flex-flow: column nowrap;
+        flex-direction: column-reverse;
+        align-items: center;
+
+        .menu-logo {
+          width: 70%;
+          // background: center/25% no-repeat;
+        }
+      }
     }
 
     .content-menu-temp-item[data-type='big'] {
@@ -201,8 +215,23 @@ width = 1240px = 62rem
       flex-grow: 1;
       height: 6.73rem;
       padding: 1.5rem;
+      border-radius: 1.5rem;
       font-size: var(--font-size-large);
       line-height: var(--line-height-large);
+
+      .menu-name {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-grow: 1;
+        align-items: center;
+
+        .menu-logo {
+          flex: 1;
+        }
+        .menu-title {
+          flex: 1;
+        }
+      }
     }
 
     .item-content .menu-name {
@@ -222,6 +251,7 @@ width = 1240px = 62rem
     row-gap: .5rem;
   }
 
+  
 
 
 }

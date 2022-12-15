@@ -1,5 +1,5 @@
 @import "./base.css";
-/* @import url("./home.css"); */
+@import url("./home.css");
 /* @import url("./global.css"); */
 
 
@@ -19,7 +19,8 @@
     font-size: 20px;
     width: 1280px;
     height: 1024px;
-    background: url('./img/43inch-header-bg.png') center/120% no-repeat;
+    /* background: url('./img/43inch-header-bg.png') center/120% no-repeat; */
+    background: linear-gradient(0deg, #404172 0%, #050C2A 100%);
   }
 }
 @media screen and (min-width: 300px) and (max-width: 1080px) {
@@ -37,4 +38,10 @@ body i {
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
   /* border: 1px solid red; */
+}
+
+.menu-name-wrap .ico-plane {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: 50% 100% !important;
 }

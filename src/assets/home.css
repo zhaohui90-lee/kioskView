@@ -133,3 +133,34 @@
 .ico-plane.ico120.showGray {
   background: url("./img/43inch_icon_s/120_icon_face@2x-gray.png");
 }
+
+.menu-bg-color-0-s {
+  background: linear-gradient(135deg, #F0EFFF 0%, #FFFFFF 100%);
+}
+.menu-bg-color-1-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #EBFFF2 100%);
+}
+.menu-bg-color-2-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #FFF7EC 100%);
+}
+.menu-bg-color-3-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #EEF8FF 100%);
+}
+.menu-bg-color-4-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #FFEEEB 100%);
+}
+.menu-bg-color-5-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #EEF8FF 100%);
+}
+.menu-bg-color-6-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #FFE9FC 100%);
+}
+.menu-bg-color-7-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #EBFFF2 100%);
+}
+.menu-bg-color-8-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #EEF8FF 100%);
+}
+.menu-bg-color-9-s {
+  background: linear-gradient(316deg, #FFFFFF 0%, #FFEBF0 100%);
+}

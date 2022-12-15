@@ -30,6 +30,10 @@ import ClockWeek from "@/components/ClockWeek.vue";
 
 <style lang="less" scoped>
 
+.title-container {
+  background-color: #fff;
+}
+
 .home-timer {
   display: flex;
   align-items: center;

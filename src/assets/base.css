@@ -12,5 +12,22 @@
   --background-secondary: #595959;
   --background-tertiary: #8c8c8c;
 
-  
+  --button-background-sucess: #67C23A;
+  --button-background-warning: #E6A23C;
+  --button-background-warning: #E6A23C;
+  --button-background-danger: #F56C6C;
+  --button-background-info: #909399;
+
+  --home-button-background-1: #fff;
+  --home-button-background-2: #fff;
+  --home-button-background-3: #fff;
+  --home-button-background-4: #fff;
+  --home-button-background-5: #fff;
+  --home-button-background-6: #fff;
+  --home-button-background-7: #fff;
+  --home-button-background-8: #fff;
+  --home-button-background-9: #fff;
+  --home-button-background-10: #fff;
+  --home-button-background-11: #fff;
+  --home-button-background-12: #fff;
 }
