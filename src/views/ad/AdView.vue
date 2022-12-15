@@ -12,6 +12,6 @@ import AdSlot from "@/slot/ad/AdSlot.vue";
 </template>
 <style lang="less" scoped>
 .main-ad {
-  background: var(--el-overlay-color) url('@/assets/img/ad/ad-emic.png') center/95% no-repeat;
+  background: var(--background-primary) url('@/assets/img/ad/ad-emic.png') center/95% no-repeat;
 }
 </style>

@@ -3,32 +3,12 @@
   "code": "0",
   "data": [
     {
-      "id": 614,
-      "name": "当日挂号",
-      "sort": 1,
-      "logo": "1",
-      "url": "",
-      "flag": "big",
-      "tips": "支付宝 微信 现金 银行卡 支付宝刷脸",
-      "function": {
-        "id": 482,
-        "name": "挂号",
-        "description": null,
-        "url": "./#go_register",
-        "stat": true,
-        "topic": null,
-        "dept": "自助机",
-        "type": "办理"
-      },
-      "secMenu": []
-    },
-    {
       "id": 616,
       "name": "缴费",
       "sort": 2,
       "logo": "4",
       "url": null,
-      "flag": "big",
+      "flag": "small",
       "tips": "现金 银行卡 支付宝 支付宝刷脸 微信 账户支付",
       "function": {
         "id": 466,
@@ -138,7 +118,7 @@
       "sort": 13,
       "logo": "9",
       "url": null,
-      "flag": "small",
+      "flag": "big",
       "tips": "当日挂号: 7点-16点",
       "function": {
         "id": 482,
@@ -194,6 +174,46 @@
     },
     {
       "id": 623,
+      "name": "每日巡检",
+      "sort": 33,
+      "logo": "8",
+      "url": null,
+      "flag": "small",
+      "tips": "导医每天巡检设备，保证设备正常运行",
+      "function": {
+        "id": 488,
+        "name": "每日巡检",
+        "description": null,
+        "url": "./#go_testPrint",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 624,
+      "name": "每日巡检",
+      "sort": 33,
+      "logo": "8",
+      "url": null,
+      "flag": "small",
+      "tips": "导医每天巡检设备，保证设备正常运行",
+      "function": {
+        "id": 488,
+        "name": "每日巡检",
+        "description": null,
+        "url": "./#go_testPrint",
+        "stat": true,
+        "topic": null,
+        "dept": "自助机",
+        "type": "办理"
+      },
+      "secMenu": []
+    },
+    {
+      "id": 624,
       "name": "每日巡检",
       "sort": 33,
       "logo": "8",

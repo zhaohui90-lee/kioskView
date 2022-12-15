@@ -8,6 +8,8 @@ import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
 import type { Menu } from "@/shared";
 
 const menuArray = ref<Menu[]>([])
+const menuArrayBig = ref<Menu[]>([])
+const menuArraySmall = ref<Menu[]>([])
 
 const subTitleStore = useSubTitleStore();
 const cardModuleStore = useCardModuleStore();
@@ -47,6 +49,11 @@ onBeforeMount(() => {
     deviceNo: '001'
   }).then(res => {
     menuArray.value = res.data
+    // console.log(menuArray.value);
+
+    menuArrayBig.value = menuArray.value.filter(item => item.flag === 'big')
+    menuArraySmall.value = menuArray.value.filter(item => item.flag === 'small')
+    menuArray.value = menuArrayBig.value.concat(menuArraySmall.value)
   })
 })
 
@@ -66,98 +73,156 @@ onUpdated(() => {
 
 </script>
   
+/****
+按钮分大小 宽度1080分割为12等分 
+大按钮占360 小按钮占180
+
+1rem = 20px
+height = 1030px = 51.5rem
+gap = 1rem
+
+想要实现四行按钮
+51.5-3 = 48.5rem
+48.5/4-3=12.125rem
+去除padding 12.125-3=9.125rem
+
+width = 1080px = 54rem
+去除内边距 54rem - 2rem = 52rem
+去除gap 52rem-3rem=49rem
+实现四列按钮 49/4=12.25rem
+去除内边距 12.25rem-3rem=9.25rem
+
+大按钮实现两倍的小按钮
+width=490px=24.5rem
+去除padding 24.5rem-3rem=21.5rem
+加上gap 21.5rem+1rem=22.5rem
+*/
+
+/**
+实现大按钮三列 小按钮六列 按钮总体三行
+height = 744px = 37.2rem
+去除gap 37.2 - 2 = 35.2rem
+去除padding 35.2/3 - 3 = 8.73rem
+
+小按钮6列
+width = 1240px = 62rem
+去除gap 62 - 5 = 57rem
+去除padding 57/6 - 3 = 17.66rem
+
+小按钮
+去除gap 64 - 2 = 62rem
+去除padding 62/3 - 3 = 6.5rem
+
+大按钮是小按钮的两倍+gap
+6.5*2 + 4 = 17rem
+*/
 <template>
   <ContentSlot>
     <template #main-content>
       <div class="content">
 
-        <!-- <div class="content-menu-temp">
-          <div class="content-menu-temp-item" v-for="(item, index) in menuArray" :key="item.id">
-            <div class="item-content" :class="'menu-bg-color-' + index" @click="goMenu(item.function.url, item.name)">
+        <div class="content-menu-temp">
+          <div class="content-menu-temp-item" :data-type="item.flag" v-for="(item, index) in menuArray" :key="item.id">
+
+            <div class="item-content" :class="[`menu-bg-color-${index}`]" @click="goMenu(item.function.url, item.name)">
               <div class="menu-name">
                 <div class="menu-title">{{ item.name }}</div>
-                <div class="menu-logo ico-plane" :class="'ico' + item.logo"></div>
+                <div class="menu-logo ico-plane" :class="`ico${item.logo}`"></div>
               </div>
               <div class="menu-tips">{{ item.tips }}</div>
             </div>
+
           </div>
-        </div> -->
-        <el-row :gutter="20">
-          <el-col :span="6">
-            <div class="grid-content ep-bg-purple" />
-          </el-col>
-          <el-col :span="6">
-            <div class="grid-content ep-bg-purple" />
-          </el-col>
-          <el-col :span="6">
-            <div class="grid-content ep-bg-purple" />
-          </el-col>
-          <el-col :span="6">
-            <div class="grid-content ep-bg-purple" />
-          </el-col>
-        </el-row>
+        </div>
+
       </div>
     </template>
-
   </ContentSlot>
-
 </template>
   
 <style lang="less" scoped>
 .content {
-  width: 100%;
-  color: #fff;
-  font-size: 30px;
-  // background: url('@/assets/img/43inch-footer-bg.png') center/120% no-repeat;
+  padding: 0 1rem;
+}
+
+.content-menu-temp {
+  display: flex;
+  flex-flow: row wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
 
 
-  .content-menu-temp {
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
+  @media screen and (max-width: 1080px) {
+    .content-menu-temp-item[data-type='small'] {
+      flex-basis: 9.25rem;
+      max-width: 9.25rem;
+      flex-grow: 1;
+      height: 9.125rem;
+      padding: 1.5rem;
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
+    }
 
-    &-item {
-      height: 190px;
-      width: 390px;
+    .content-menu-temp-item[data-type='big'] {
+      flex-basis: 22.5rem;
+      max-width: 22.5rem;
+      flex-grow: 1;
+      height: 9.125rem;
+      padding: 1.5rem;
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
+    }
 
-      .item-content {
-        height: 80%;
-        width: 80%;
-        padding: 3%;
-        display: flex;
-        flex-direction: column;
-        border-radius: 1.2rem;
+    .item-content .menu-name {
+      font-size: var(--font-size-extra-large);
+      line-height: var(--line-height-extra-large);
+    }
 
-        .menu-name {
-          height: 60%;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          text-align: justify;
-
-          .menu-title {
-            font-size: 35px;
-            width: 70%;
-            flex: 4;
-          }
-
-          .menu-logo {
-            flex: 1;
-            padding-right: 15px;
-          }
-
-          div {
-            flex: 1;
-          }
-        }
-
-        .menu-tips {
-          height: 40%;
-          font-size: 1.4rem;
-        }
-      }
+    .item-content .menu-tips {
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
     }
   }
+
+  @media screen and (min-width: 1280px) {
+    .content-menu-temp-item[data-type='small'] {
+      flex-basis: 6.5rem;
+      max-width: 6.5rem;
+      flex-grow: 1;
+      height: 6.73rem;
+      padding: 1.5rem;
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
+    }
+
+    .content-menu-temp-item[data-type='big'] {
+      flex-basis: 17rem;
+      max-width: 17rem;
+      flex-grow: 1;
+      height: 6.73rem;
+      padding: 1.5rem;
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
+    }
+
+    .item-content .menu-name {
+      font-size: var(--font-size-large);
+      line-height: var(--line-height-large);
+    }
+
+    .item-content .menu-tips {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+    }
+  }
+
+  .item-content {
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: .5rem;
+  }
+
+
 
 }
 </style>

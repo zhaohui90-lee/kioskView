@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="../normalize.css">
   <style>
-    #outer {
-      height: 100%;
+    #header {
+      height: 120px;
+      background-color: black;
     }
-    #inner {
-      height: 20%;
-      /* display: inline-block; */
+    #ad {
+      height: 610px;
+    }
+    #main {
+      height: 1030px;
       background-color: red;
     }
-    p {
-      border: 2px solid green;
-    width: 40%;
+    #footer {
+      height: 160px;
+      background-color: grey;
     }
   </style>
 </head>
+
 <body>
-  <div id="outer">
-    <p id="inner">11<strong>111</strong>111</p>
-  </div>
+  <header>
+    <div id="header"></div>
+  </header>
+  <main>
+    <div id="ad"></div>
+    <div id="main"></div>
+  </main>
+  <footer>
+    <div id="footer"></div>
+  </footer>
 </body>
+
 </html>

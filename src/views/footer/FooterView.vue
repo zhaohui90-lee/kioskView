@@ -61,7 +61,6 @@ onBeforeMount(() => {
   align-items: center;
 
   &-img {
-    // height: 160px;
     flex: 1;
     text-align: center;
   }

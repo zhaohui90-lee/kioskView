@@ -6,7 +6,5 @@
   </div>
 </template>
 <style lang="less" scoped>
-.main-ad {
-  height: 610px;
-}
+
 </style>

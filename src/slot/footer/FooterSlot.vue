@@ -4,38 +4,36 @@
 
 <template>
   <div class="footer">
-    <el-row :gutter="20" style="height: 100%;">
+    <div class="footer-left">
+      <slot name="footer-left"></slot>
+    </div>
 
-      <el-col :span="7" style="height: 100%;">
-        <div class="footer-left">
-          <slot name="footer-left"></slot>
-        </div>
-      </el-col>
+    <div class="footer-middle">
+      <slot name="footer-middle"></slot>
+    </div>
 
-      <el-col :span="7" style="height: 100%;">
-        <div class="footer-middle">
-          <slot name="footer-middle"></slot>
-        </div>
-      </el-col>
-
-      <el-col :span="10" style="height: 100%;">
-        <div class="footer-right">
-          <slot name="footer-right"></slot>
-        </div>
-
-      </el-col>
-    </el-row>
+    <div class="footer-right">
+      <slot name="footer-right"></slot>
+    </div>
   </div>
 </template>
 
 <style lang="less" scoped>
-
 .footer {
-  background: #99a6b3;
-  &-left,
-  &-middle,
+  background: var(--background-tertiary);
+  display: flex;
+  &-left {
+    height: 100%;
+    flex: 7;
+  }
+  &-middle {
+    height: 100%;
+    flex: 7;
+  }
   &-right {
     height: 100%;
+    flex: 10;
   }
+
 }
 </style>

@@ -1,10 +1,16 @@
 :root {
-  --font-size-base: 0.7rem;
-  --font-size-medium: 1rem;
+  --font-size-small: 0.7rem;
+  --font-size-base: 1rem;
   --font-size-large: 1.5rem;
   --font-size-extra-large: 1.9rem;
-  --line-height-base: 1.1rem;
-  --line-height-medium: 1.4rem;
+  --line-height-small: 1.1rem;
+  --line-height-base: 1.4rem;
   --line-height-large: 1.9rem;
   --line-height-extra-large: 2.3rem;
+
+  --background-primary: #262626;
+  --background-secondary: #595959;
+  --background-tertiary: #8c8c8c;
+
+  
 }

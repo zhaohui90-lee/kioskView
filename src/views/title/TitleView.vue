@@ -25,7 +25,6 @@ import ClockWeek from "@/components/ClockWeek.vue";
       </div>
     </template>
 
-
   </HeaderSlot>
 </template>
 
