@@ -20,7 +20,7 @@
 
 <style lang="less" scoped>
 .footer {
-  background: var(--background-tertiary);
+  background: var(--background-footer);
   display: flex;
   &-left {
     height: 100%;

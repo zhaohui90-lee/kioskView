@@ -1,4 +1,5 @@
 :root {
+  --font-size-weight: bold;
   --font-size-small: 0.7rem;
   --font-size-base: 1rem;
   --font-size-large: 1.5rem;
@@ -11,6 +12,7 @@
   --background-primary: #262626;
   --background-secondary: #595959;
   --background-tertiary: #8c8c8c;
+  --background-footer: #8a8aa8;
 
   --button-background-sucess: #67C23A;
   --button-background-warning: #E6A23C;
@@ -18,7 +20,7 @@
   --button-background-danger: #F56C6C;
   --button-background-info: #909399;
 
-  --home-button-background-1: #fff;
+  --home-button-background-1: #8a8aa8;
   --home-button-background-2: #fff;
   --home-button-background-3: #fff;
   --home-button-background-4: #fff;

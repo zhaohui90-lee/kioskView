@@ -3,12 +3,6 @@
 /* @import url("./global.css"); */
 
 
-/* #app {
-  width: 1280px;
-  height: 1080px;
-  background: url(./img/43inch-footer-bg.png) center/120%;
-} */
-
 @media screen and (min-width: 1281px) {
   html {
     font-size: 25px;
@@ -19,7 +13,6 @@
     font-size: 20px;
     width: 1280px;
     height: 1024px;
-    /* background: url('./img/43inch-header-bg.png') center/120% no-repeat; */
     background: linear-gradient(0deg, #404172 0%, #050C2A 100%);
   }
 }
@@ -28,7 +21,7 @@
     font-size: 20px;
     width: 1080px;
     height: 1920px;
-    background: url('./img/43inch-footer-bg.png') center/140% no-repeat;
+    background: linear-gradient(0deg, #404172 0%, #050C2A 100%);
   }
 }
 body div,
@@ -37,7 +30,6 @@ body i {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji';
-  /* border: 1px solid red; */
 }
 
 .menu-name-wrap .ico-plane {
