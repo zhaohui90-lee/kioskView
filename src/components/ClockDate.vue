@@ -2,7 +2,7 @@
 import { ref, type Ref } from 'vue';
 import moment from 'moment'
 
-let currentDate: Ref = ref<String>(moment().format('YYYY-MM-DD'))
+let currentDate: Ref<string> = ref(moment().format('YYYY-MM-DD'))
 
 setInterval(() => {
   currentDate.value = moment().format('YYYY-MM-DD')

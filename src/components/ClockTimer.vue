@@ -3,9 +3,9 @@ import { ref, type Ref } from 'vue';
 import moment from 'moment'
 
 let now = moment().utc().utcOffset(8)
-let hour: Ref = ref<String>(now.format('HH'))
-let minute: Ref = ref<String>(now.format('mm'))
-let second: Ref = ref<String>(now.format('ss'))
+let hour: Ref<string> = ref(now.format('HH'))
+let minute: Ref<string> = ref(now.format('mm'))
+let second: Ref<string> = ref(now.format('ss'))
 
 setInterval(() => {
   hour.value = moment().format('HH')
@@ -16,7 +16,7 @@ setInterval(() => {
 <template>
   <div class="timer-temp">
     <strong>
-    {{ hour }}:{{  minute  }}:{{  second  }}
+      {{ hour }}:{{ minute }}:{{ second }}
     </strong>
   </div>
 </template>

@@ -1,22 +1,29 @@
 <script setup lang="ts">
 import FooterSlot from '@/slot/footer/FooterSlot.vue';
-import { onBeforeMount, ref } from 'vue';
+import { onBeforeMount, ref, type Ref } from 'vue';
 import { fetchPost } from "@/http";
 import api from "@/api";
-const welcomeMessage = ref<String>('欢迎使用')
+import type { DeviceInfo } from "@/shared/homeFlags";
+const welcomeMessage: Ref<string> = ref('欢迎使用')
 
-const deviceNumber = ref<String>('001')
-const softwareVersion = ref<String>('0.0.0.0')
-const ipAddr = ref<String>('')
+const deviceNumber: Ref<string> = ref('001')
+const softwareVersion: Ref<string> = ref('0.0.0.0')
+const ipAddr: Ref<string> = ref('')
+
+async function getDeviceInfo(): DeviceInfo {
+  const res =  await fetchPost(api['getDeviceInfo'], { deviceNo: deviceNumber.value.toString() });
+  return res
+}
 
 
 onBeforeMount(() => {
   // 获取设备信息
-  fetchPost(api['getDeviceInfo'], {
-    deviceNo: deviceNumber.value.toString()
-  }).then(res => {
-    ipAddr.value = res.data.ip
-  })
+  ipAddr.value = getDeviceInfo().data.ip
+  // fetchPost(api['getDeviceInfo'], {
+  //   deviceNo: deviceNumber.value.toString()
+  // }).then(res => {
+  //   ipAddr.value = res.data.ip
+  // })
 
   // 获取软件版本
   fetchPost(api['getSwVersion'], {})

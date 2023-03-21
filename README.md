@@ -8,6 +8,8 @@
 报错页面
 ### http
 对`axios`框架做了封装
+
+优化了`http`封装的写法，加入的TS语法
 ### router
 `vue`路由配置
 ### shared

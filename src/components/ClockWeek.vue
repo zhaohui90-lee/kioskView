@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import moment from "moment";
-import { ref } from "vue";
+import { computed } from "vue";
 
 interface valToWeek {
   code: string,
   value: string
 }
 
-const weekToCN: Array<valToWeek | any> = [
+const weekToCN: readonly valToWeek[] = [
   {
     code: '0',
     value: '星期天',
@@ -37,7 +37,14 @@ const weekToCN: Array<valToWeek | any> = [
     value: '星期六',
   }
 ]
-let week = ref(weekToCN.find(item => item.code === moment().format('d')).value)
+
+const week = computed(() => {
+  const code = moment().format('d')
+  const valToWeek = weekToCN.find(item => item.code === code)
+  return valToWeek ? valToWeek.value : '';
+})
+
+// let week = ref(weekToCN.find(item => item.code === moment().format('d')).value)
 </script>
 
 <template>

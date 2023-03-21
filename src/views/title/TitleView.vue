@@ -4,6 +4,7 @@ import HospitalLogo from '@/components/HospitalLogo.vue';
 import ClockDate from '@/components/ClockDate.vue';
 import ClockTimer from '@/components/ClockTimer.vue';
 import ClockWeek from "@/components/ClockWeek.vue";
+
 </script>
 
 <template>

@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useRouter } from 'vue-router';
 import { fetchPost } from "@/http";
 import api from "@/api";
 import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
 import type { Menu } from "@/shared";
+import { computed } from '@vue/reactivity';
 
 const menuArray = ref<Menu[]>([])
-const menuArrayBig = ref<Menu[]>([])
-const menuArraySmall = ref<Menu[]>([])
+const menuArrayBig = computed(() => menuArray.value.filter(item => item.flag === 'big'))
+const menuArraySmall = computed(() => menuArray.value.filter(item => item.flag === 'small'))
 
 const subTitleStore = useSubTitleStore();
 const cardModuleStore = useCardModuleStore();
@@ -42,33 +43,18 @@ function goMenu(target: string, targetName: string) {
 
 }
 
-onBeforeMount(() => {
-  console.log('===>', api['getMenuByDeviceNo']);
-
-  fetchPost(api['getMenuByDeviceNo'], {
-    deviceNo: '001'
-  }).then(res => {
+// 使用async await替代then  增加可读性
+async function fetchMenu() {
+  try {
+    const res = await fetchPost(api['getMenuByDeviceNo'], { deviceNo: '001' });
     menuArray.value = res.data
-    // console.log(menuArray.value);
-
-    menuArrayBig.value = menuArray.value.filter(item => item.flag === 'big')
-    menuArraySmall.value = menuArray.value.filter(item => item.flag === 'small')
     menuArray.value = menuArrayBig.value.concat(menuArraySmall.value)
-  })
-})
+  } catch (error) {
+    console.error('Failed to fetch menu items:', error);
+  }
+}
 
-onMounted(() => {
-
-})
-
-onBeforeUpdate(function () {
-
-})
-
-
-onUpdated(() => {
-
-})
+onBeforeMount(fetchMenu)
 
 
 </script>
@@ -122,7 +108,8 @@ width = 1240px = 62rem
       <div class="content">
 
         <div class="content-menu-temp">
-          <div class="content-menu-temp-item" :class="[`menu-bg-color-${index}-s`]" :data-type="item.flag" v-for="(item, index) in menuArray" :key="item.id">
+          <div class="content-menu-temp-item" :class="[`menu-bg-color-${index}-s`]" :data-type="item.flag"
+            v-for="(item, index) in menuArray" :key="item.id">
 
             <div class="item-content" @click="goMenu(item.function.url, item.name)">
               <div class="menu-name menu-name-wrap">
@@ -195,7 +182,7 @@ width = 1240px = 62rem
         .menu-title {
           flex: 3;
         }
-        
+
         .menu-logo {
           flex: 1;
         }
@@ -247,6 +234,7 @@ width = 1240px = 62rem
         .menu-logo {
           flex: 1;
         }
+
         .menu-title {
           flex: 1;
         }
@@ -270,7 +258,7 @@ width = 1240px = 62rem
     row-gap: .5rem;
   }
 
-  
+
 
 
 }
