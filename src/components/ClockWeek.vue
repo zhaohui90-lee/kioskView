@@ -38,13 +38,12 @@ const weekToCN: readonly valToWeek[] = [
   }
 ]
 
+// 实现一个计算属性 week
 const week = computed(() => {
-  const code = moment().format('d')
-  const valToWeek = weekToCN.find(item => item.code === code)
-  return valToWeek ? valToWeek.value : '';
+  const week = moment().format('d');
+  const weekCN = weekToCN.find(item => item.code === week)?.value;
+  return weekCN;
 })
-
-// let week = ref(weekToCN.find(item => item.code === moment().format('d')).value)
 </script>
 
 <template>
