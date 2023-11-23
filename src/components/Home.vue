@@ -1,6 +1,36 @@
 <script setup lang="ts">
+import { computed, reactive } from 'vue';
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated } from 'vue';
 
+const author = reactive({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
+})
+
+const publishedBooksMessage = computed({
+  get: () => author.books.length > 0 ? 'Yes' : 'No',
+  set: (val) => author.name = val 
+})
+
+const publishedBooksMessage1 = computed(() => {
+  return author.books.length > 0 ? 'Yes' : 'No'
+}, {
+  onTrack: (e) => {
+    console.log(e);
+    debugger
+  },
+  onTrigger: (e) => {
+    console.log(e);
+    debugger
+  }
+})
+
+console.log(publishedBooksMessage);
+console.log(publishedBooksMessage1);
 
 
 onBeforeMount(() => {
