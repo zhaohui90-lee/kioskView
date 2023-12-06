@@ -18,6 +18,7 @@
     "element-plus": "^2.2.26",
     "esbuild": "^0.17.11",
     "fs": "^0.0.1-security",
+    "immer": "^10.0.3",
     "moment": "^2.29.4",
     "normalize.css": "^8.0.1",
     "pinia": "^2.0.17",
