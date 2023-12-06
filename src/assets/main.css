@@ -3,24 +3,39 @@
 /* @import url("./global.css"); */
 
 
-@media screen and (min-width: 1281px) {
-  html {
+/* @media screen and (min-width: 1281px) {
+  #app {
     font-size: 25px;
   }
-}
-@media screen and (min-width: 1081px) and (max-width: 1280px) {
-  html {
-    font-size: 20px;
+} */
+
+
+/* @media (min-width: 1280px) {
+
+  html, body {
     width: 1280px;
     height: 1024px;
+  }
+
+  #app {
+    box-sizing: border-box;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
     background: linear-gradient(0deg, #404172 0%, #050C2A 100%);
   }
-}
-@media screen and (min-width: 300px) and (max-width: 1080px) {
-  html {
-    font-size: 20px;
+} */
+@media (max-width: 1080px) {
+
+  html, body {
     width: 1080px;
     height: 1920px;
+    font-size: 20px;
+  }
+
+  #app {
+    width: 100%;
+    height: 100%;
     background: linear-gradient(0deg, #404172 0%, #050C2A 100%);
   }
 }

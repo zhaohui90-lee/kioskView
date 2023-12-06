@@ -6,11 +6,12 @@ import { fetchPost } from "@/http";
 import api from "@/api";
 import { useSubTitleStore, useCardModuleStore } from "@/stores/index";
 import type { Menu } from "@/shared";
-import { computed } from '@vue/reactivity';
+import { computed } from 'vue';
 
 const menuArray = ref<Menu[]>([])
 const menuArrayBig = computed(() => menuArray.value.filter(item => item.flag === 'big'))
 const menuArraySmall = computed(() => menuArray.value.filter(item => item.flag === 'small'))
+
 
 const subTitleStore = useSubTitleStore();
 const cardModuleStore = useCardModuleStore();

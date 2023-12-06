@@ -1,36 +1,99 @@
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { reactive } from 'vue';
+import { watchEffect } from 'vue';
+import { readonly } from 'vue';
+import { isRef } from 'vue';
+import { computed, ref } from 'vue';
 import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated } from 'vue';
 
-const author = reactive({
+const author = ref({
   name: 'John Doe',
   books: [
     'Vue 2 - Advanced Guide',
     'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
+    'Vue 4 - The Mystery',
+    {
+      'name': '小王子',
+      'price': 20
+    }
+  ],
+  address: "1111111"
 })
 
+console.log(author);
+author.value.name = 'jack'
+// console.log(author.__v_isRef);
+// console.log(author.dep);
+// console.log(author._rawValue);
+
+const copy = readonly(author)
+console.log(copy);
+
+
+
+console.log(isRef(author));
+
+watchEffect(() => {
+  console.log('watchEffect...');
+  
+  author.value
+})
+
+// const originalArray = reactive<number[]>([]);
+
+// const proxyArray = new Proxy(originalArray, {});
+
+// proxyArray.push(1)
+
+// proxyArray.push(2)
+
+// console.log(proxyArray);
+
+
+
+
+const author1 = reactive({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery',
+    {
+      'name': '小王子',
+      'price': 20
+    }
+  ],
+  address: "1111111"
+})
+
+console.log(author1);
+
+
+
+
 const publishedBooksMessage = computed({
-  get: () => author.books.length > 0 ? 'Yes' : 'No',
-  set: (val) => author.name = val 
+  get: () => author.value.books.length > 0 ? 'Yes' : 'No',
+  set: (val) => author.value.name = val 
 })
 
 const publishedBooksMessage1 = computed(() => {
-  return author.books.length > 0 ? 'Yes' : 'No'
+  return author.value.books[3] ? 'Yes' : 'No'
 }, {
   onTrack: (e) => {
     console.log(e);
-    debugger
   },
   onTrigger: (e) => {
     console.log(e);
-    debugger
   }
 })
 
 console.log(publishedBooksMessage);
 console.log(publishedBooksMessage1);
+
+
+
+
+
 
 
 onBeforeMount(() => {
