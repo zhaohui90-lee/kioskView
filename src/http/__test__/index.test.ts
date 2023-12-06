@@ -1,10 +1,8 @@
-import { describe, expect, test } from "@jest/globals";
 import { fetchPost } from "../index";
+import { expect, test } from "vitest";
 
-describe("fetchPost module", () => {
-  test("fetch ...", () => {
-    return fetchPost("https://www.baidu.com", {}).then((data) => {
-      expect(data).toBeDefined();
-    });
+test("fetch....", () => {
+  return fetchPost("https://www.baidu.com", {}).then((data) => {
+    expect(data).toBeDefined();
   });
 });
