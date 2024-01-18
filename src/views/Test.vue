@@ -4,24 +4,21 @@
   </div>
 </template>
 
-
 <script setup lang="ts">
 import axios from 'axios'
-import { computed, reactive, ref, toRef } from 'vue';
+import { ref } from 'vue'
 
 // let msg = reactive<Number[]>([])
 let msg = ref<String>('')
-axios.get('http://localhost:3000/test')
-  .then(res => {
+axios
+  .get('http://localhost:3000/test')
+  .then((res) => {
     // msg.push(res.data)
     msg.value = res.data
   })
-  .catch(error => {
-    console.log(error);
-
+  .catch((error) => {
+    console.log(error)
   })
-
-
 
 // let message1 = reactive<Number[]>([])
 

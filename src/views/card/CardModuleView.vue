@@ -2,7 +2,7 @@
 import type { CardModule } from "@/shared"
 import ContentSlot from "@/slot/content/ContentSlot.vue";
 import { useCardModuleStore } from "@/stores";
-import { onBeforeMount, ref } from "vue";
+import { onBeforeMount } from "vue";
 const cardModuleStore = useCardModuleStore();
 
 const cardModule: Array<CardModule> = cardModuleStore.cardModule
@@ -28,7 +28,7 @@ function selectCard() {
           </div>
         </div>
         <div class="card-module-template">
-          <div class="card-item" v-for="(item, index) in cardModule" @click="selectCard">
+          <div class="card-item" v-for="item in cardModule" @click="selectCard">
             {{item.cardName}}
           </div>
         </div>

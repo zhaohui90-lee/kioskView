@@ -4,10 +4,17 @@ import TitleView from '@/views/title/TitleView.vue'
 import ContentView from '@/views/content/ContentView.vue'
 import FooterView from '@/views/footer/FooterView.vue'
 import AdView from '@/views/ad/AdView.vue'
-
+import FooterCardView from '@/views/footer/FooterCardView.vue'
+import SubTitleView from '@/views/subTitle/SubTitleView.vue'
+import CardModuleView from '@/views/card/CardModuleView.vue'
+import IdCardView from '@/views/card/IdCardView.vue'
+import SocialCardView from '@/views/card/SocialCardView.vue'
+import HealthyCardView from '@/views/card/HealthyCardView.vue'
+import NationalCardView from '@/views/card/NationalCardView.vue'
+import PaymentView from '@/views/payment/PaymentView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(process.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -16,57 +23,57 @@ const router = createRouter({
         Content: ContentView,
         Ad: AdView,
         Header: TitleView,
-        Footer: FooterView
-      }
+        Footer: FooterView,
+      },
     },
     {
       path: '/card',
       name: 'cardModule',
       components: {
-        default: () => import('@/views/card/CardModuleView.vue'),
-        Header: () => import('@/views/subTitle/SubTitleView.vue'),
-        Footer: () => import('@/views/footer/FooterCardView.vue')
+        default: () => CardModuleView,
+        Header: () => SubTitleView,
+        Footer: FooterCardView,
       },
       children: [
         {
           path: '/idCard',
-          component: () => import('@/views/card/IdCardView.vue')
+          component: () => IdCardView,
         },
         {
           path: '/socialCard',
-          component: () => import('@/views/card/SocialCardView.vue')
+          component: () => SocialCardView,
         },
         {
           path: '/healthyCard',
-          component: () => import('@/views/card/HealthyCardView.vue')
+          component: () => HealthyCardView,
         },
         {
           path: '/nationalCard',
-          component: () => import('@/views/card/NationalCardView.vue')
-        }
-      ]
+          component: () => NationalCardView,
+        },
+      ],
     },
     {
       path: '/go_payment',
       name: 'payment',
       components: {
-        default: () => import('@/views/payment/PaymentView.vue'),
-        Header: () => import('@/views/subTitle/SubTitleView.vue'),
-        Footer: () => import('@/views/footer/FooterView.vue')
-      }
-    }
-  ]
+        default: () => PaymentView,
+        Header: () => SubTitleView,
+        Footer: () => FooterView,
+      },
+    },
+  ],
 })
 
 router.beforeEach((to, from, next) => {
-  console.log('跳转的路由是：', from, to);
-  let isAuthenticated = false;
+  console.log('跳转的路由是：', from, to)
+  let isAuthenticated = false
   // 判断是否是首页
-  if('/' === to.fullPath) {
+  if ('/' === to.fullPath) {
     next()
-  } else if(isAuthenticated && '/card' !== to.fullPath) {
+  } else if (isAuthenticated && '/card' !== to.fullPath) {
     next()
-  } else if('/card' !== to.fullPath){
+  } else if ('/card' !== to.fullPath) {
     next('/card')
   } else {
     next()

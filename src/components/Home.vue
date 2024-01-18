@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
-import { watchEffect } from 'vue';
-import { readonly } from 'vue';
-import { isRef } from 'vue';
-import { computed, ref } from 'vue';
-import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated } from 'vue';
+import { effectScope, onScopeDispose, reactive, watch } from 'vue'
+import { watchEffect } from 'vue'
+import { readonly } from 'vue'
+import { isRef } from 'vue'
+import { computed, ref } from 'vue'
+import { onBeforeMount, onBeforeUpdate, onMounted, onUpdated } from 'vue'
 
 const author = ref({
   name: 'John Doe',
@@ -13,29 +13,27 @@ const author = ref({
     'Vue 3 - Basic Guide',
     'Vue 4 - The Mystery',
     {
-      'name': '小王子',
-      'price': 20
-    }
+      name: '小王子',
+      price: 20,
+    },
   ],
-  address: "1111111"
+  address: '1111111',
 })
 
-console.log(author);
+console.log(author)
 author.value.name = 'jack'
 // console.log(author.__v_isRef);
 // console.log(author.dep);
 // console.log(author._rawValue);
 
 const copy = readonly(author)
-console.log(copy);
+console.log(copy)
 
-
-
-console.log(isRef(author));
+console.log(isRef(author))
 
 watchEffect(() => {
-  console.log('watchEffect...');
-  
+  console.log('watchEffect...')
+
   author.value
 })
 
@@ -49,9 +47,6 @@ watchEffect(() => {
 
 // console.log(proxyArray);
 
-
-
-
 const author1 = reactive({
   name: 'John Doe',
   books: [
@@ -59,61 +54,117 @@ const author1 = reactive({
     'Vue 3 - Basic Guide',
     'Vue 4 - The Mystery',
     {
-      'name': '小王子',
-      'price': 20
-    }
+      name: '小王子',
+      price: 20,
+    },
   ],
-  address: "1111111"
+  address: '1111111',
 })
 
-console.log(author1);
-
-
-
+console.log(author1)
 
 const publishedBooksMessage = computed({
-  get: () => author.value.books.length > 0 ? 'Yes' : 'No',
-  set: (val) => author.value.name = val 
+  get: () => (author.value.books.length > 0 ? 'Yes' : 'No'),
+  set: (val) => (author.value.name = val),
 })
 
-const publishedBooksMessage1 = computed(() => {
-  return author.value.books[3] ? 'Yes' : 'No'
-}, {
-  onTrack: (e) => {
-    console.log(e);
+const publishedBooksMessage1 = computed(
+  () => {
+    return author.value.books[3] ? 'Yes' : 'No'
   },
-  onTrigger: (e) => {
-    console.log(e);
+  {
+    onTrack: (e) => {
+      console.log(e)
+    },
+    onTrigger: (e) => {
+      console.log(e)
+    },
   }
-})
+)
 
-console.log(publishedBooksMessage);
-console.log(publishedBooksMessage1);
-
-
-
-
-
-
+console.log(publishedBooksMessage)
+console.log(publishedBooksMessage1)
 
 onBeforeMount(() => {
-  console.log('home before mounted...');
+  console.log('home before mounted...')
 })
-
 
 onMounted(() => {
-  console.log('home mounted...');
+  console.log('home mounted...')
 })
 
-
-
 onBeforeUpdate(() => {
-  console.log('home before updated...');
+  console.log('home before updated...')
 })
 
 onUpdated(() => {
-  console.log('home updated...');
+  console.log('home updated...')
 })
+
+// effectScope
+let counter = ref(100)
+
+// watch(counter, () => {
+//   console.log('counter changed: ', counter.value)
+// })
+// watchEffect(() => {
+//   console.log('counter changed: ', counter.value)
+// })
+const scope = effectScope()
+scope.run(() => {
+  const doubled = computed(() => counter.value * 2)
+
+  watch(doubled, () => console.log(doubled.value))
+
+  watchEffect(() => console.log('Count: ', doubled.value))
+})
+
+scope.stop()
+
+function useMouse() {
+  const x = ref(0)
+  const y = ref(0)
+
+  function handler(e: any) {
+    x.value = e.x
+    y.value = e.y
+  }
+
+  window.addEventListener('mousemove', handler)
+
+  onScopeDispose(() => {
+    window.removeEventListener('mousemove', handler)
+  })
+
+  return { x, y }
+}
+
+console.log(useMouse());
+
+
+// function createSharedComposable(composable) {
+//   let subscriber = 0
+//   let state
+
+//   const dispose = () => {
+//     subscriber--
+//     if (subscriber === 0) {
+//       scope.stop()
+//       state = null
+//       state = null
+//     }
+//   }
+
+//   return (...args) => {
+//     subscriber++
+//     if (!state) {
+//       scope = effectScope(true)
+//       state = scope.run(() => composable(...args))
+//     }
+//     onScopeDispose(dispose)
+//     return false
+//   }
+// }
 
 </script>
 
@@ -130,8 +181,6 @@ onUpdated(() => {
       <router-view class="view main-footer" name="Footer"></router-view>
     </footer>
   </div>
-
-
 </template>
 
 <style lang="less">
