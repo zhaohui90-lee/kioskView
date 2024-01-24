@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { effectScope, onScopeDispose, reactive, watch } from 'vue'
+import { effectScope, onScopeDispose, onUnmounted, reactive, watch } from 'vue'
 import { watchEffect } from 'vue'
 import { readonly } from 'vue'
 import { isRef } from 'vue'
@@ -102,24 +102,40 @@ onUpdated(() => {
 })
 
 // effectScope
-let counter = ref(100)
+let counter = ref(10)
+let counter2 = ref(20)
 
-// watch(counter, () => {
-//   console.log('counter changed: ', counter.value)
-// })
-// watchEffect(() => {
-//   console.log('counter changed: ', counter.value)
-// })
 const scope = effectScope()
 scope.run(() => {
-  const doubled = computed(() => counter.value * 2)
+  let decrease = setInterval(() => {
+    counter.value -= 1
+  }, 1000)
 
-  watch(doubled, () => console.log(doubled.value))
+  let decrease2 = setInterval(() => {
+    counter2.value -= 2
+  }, 1000)
 
-  watchEffect(() => console.log('Count: ', doubled.value))
+  watch(counter, (val, oldVal) => {
+    if (val === 0 || oldVal === 0) {
+      clearInterval(decrease)
+    }
+  })
+
+  watchEffect(() => {
+    console.log('counter: ', counter.value)
+    console.log('counter2: ', counter2.value)
+    if (counter2.value <= 0) {
+      clearInterval(decrease2)
+    }
+  })
+  
 })
 
-scope.stop()
+onUnmounted(() => {
+  scope.stop()
+
+})
+
 
 function useMouse() {
   const x = ref(0)
@@ -139,8 +155,11 @@ function useMouse() {
   return { x, y }
 }
 
-console.log(useMouse());
+console.log(useMouse())
 
+function triggerInterval() {
+  scope.stop()
+}
 
 // function createSharedComposable(composable) {
 //   let subscriber = 0
@@ -165,11 +184,12 @@ console.log(useMouse());
 //     return false
 //   }
 // }
-
 </script>
 
 <template>
   <div class="home">
+    {{ counter }} -- {{ counter2 }}
+    <button @click="triggerInterval">暂停倒计时</button>
     <header>
       <router-view class="view main-header" name="Header"></router-view>
     </header>

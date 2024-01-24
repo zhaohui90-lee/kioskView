@@ -4,8 +4,8 @@
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
-    "module": "es6",
-    "target": "es6",
+    "module": "esnext",
+    "target": "esnext",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
