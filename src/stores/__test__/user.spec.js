@@ -1,15 +1,33 @@
-import { describe } from "vitest";
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useUserStore } from "../user.ts";
-import { it } from "vitest";
-import { expect } from "vitest";
-import { beforeEach } from "vitest";
+import { createApp } from "vue";
 
 describe("user store", () => {
 
   beforeEach(() => {
     // Create a fresh pinia instance
-    setActivePinia(createPinia())
+    // setActivePinia(createPinia())
+
+    // must creat app before install plugin
+    // app can be null
+    let app = createApp({})
+    const pinia = createPinia()
+    app.use(pinia)
+    setActivePinia(pinia)
+
+    pinia.use(UserPlugin)
+
+    function UserPlugin() {
+      return {
+        plugin: 'userPlugin',
+      }
+    }
+  })
+
+  afterEach(() => {
+    // Unset the active pinia so we can create a fresh one in the next test
+    setActivePinia(null)
   })
 
   it("should return user store", () => {
@@ -57,5 +75,10 @@ describe("user store", () => {
     const userStore = useUserStore();
     userStore.$reset();
     expect(userStore.age).toBe(0)
+  })
+
+  it('user store plugin test', () => {
+    const userStore = useUserStore();
+    expect(userStore.plugin).toBe('userPlugin');  
   })
 })
