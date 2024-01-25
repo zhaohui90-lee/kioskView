@@ -23,7 +23,7 @@ describe('plugin test', () => {
   
   })
 
-  it('pinia store can be auto unwrap', () => {
+  it('pinia store can be implement by outer action', () => {
 
 
     const useTempStore = defineStore('temp', {
