@@ -25,6 +25,7 @@ export default defineConfig({
     }
   },
   test: {
+    isolate: true,
     environment: 'happy-dom',
     globals: true, // Specifically to make createTestingPinia happy
   }

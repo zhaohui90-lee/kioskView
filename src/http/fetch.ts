@@ -118,12 +118,13 @@ instance.interceptors.response.use(
     return data
   },
   (err: any): Promise<any> => {
+    debugger
     if (err && err.response) {
       const statusMessages: Record<number, string> = {
         400: "请求错误",
         401: "未授权，请登录",
         403: "拒绝访问",
-        404: `请求地址出错: ${err.response.config.url}`,
+        404: `请求地址出错: ${err}`,
         408: "请求超时",
         500: "服务器内部错误",
         501: "服务未实现",
