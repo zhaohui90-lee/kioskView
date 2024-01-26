@@ -35,7 +35,7 @@ instance.interceptors.request.use(
 
   (error: any): Promise<any> => {
     console.error('request: ', error);
-    if (error.code === 'ECONNABORTED' && error.message.includes('timeout')) {
+    if (error.code === 'ECONNABORTED') {
       console.error("请求超时处理");
     }
 
@@ -118,13 +118,12 @@ instance.interceptors.response.use(
     return data
   },
   (err: any): Promise<any> => {
-    debugger
     if (err && err.response) {
       const statusMessages: Record<number, string> = {
         400: "请求错误",
         401: "未授权，请登录",
         403: "拒绝访问",
-        404: `请求地址出错: ${err}`,
+        404: `请求地址出错: ${err.response.status}`,
         408: "请求超时",
         500: "服务器内部错误",
         501: "服务未实现",
